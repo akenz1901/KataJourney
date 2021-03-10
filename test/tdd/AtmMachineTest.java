@@ -61,10 +61,10 @@ public class AtmMachineTest {
         assertEquals(tundePos.availableBalance(), 0);
     }
     @Test
-    void atmMachineShallNotAllowNegativeTransfer(){
+    void atmMachineShallNotAllowNegativeTransfer() {
         AtmMachine tundePos = new AtmMachine();
         tundePos.createPin(1222);
-        tundePos.transfer(-9000,1222);
+        tundePos.transfer(-9000, 1222);
         assertEquals(tundePos.availableBalance(), 0);
 
     }

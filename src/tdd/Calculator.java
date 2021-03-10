@@ -24,4 +24,7 @@ public class Calculator {
         }
         return firstNumber-secondNumber;
     }
+//    public int calculatingUserAge(int dateOfBirth){
+//        return
+//    }
 }

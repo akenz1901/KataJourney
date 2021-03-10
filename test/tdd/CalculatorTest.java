@@ -1,18 +1,22 @@
 package tdd;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalculatorTest {
+    @BeforeEach
+    void startAllTestWith(){
+        Calculator calculator  = new Calculator();
+    }
 
     @Test
     void addTwoNumbers() {
         Calculator calculator  = new Calculator();
-
 
         assertEquals(17, calculator.add(7,10));
         assertEquals(11, calculator.add(5,6));
@@ -58,6 +62,13 @@ class CalculatorTest {
     void difference_willProduceAbsoluteResult(){
         Calculator calculator = new Calculator();
         assertEquals(5,calculator.subtract(5,10));
+    }
+    @Test
+    void calculateAge(){
+        Calculator calculator = new Calculator();
+        LocalDate userDateOfBirth = LocalDate.of(1999,9,21);
+//        assertEquals(2, calculator.calculatingUserAge(userDateOfBirth));
+
     }
 
     }
