@@ -8,7 +8,7 @@ public class CalculatorMain {
         Calculator calculator = new Calculator();
         String prompt = """
                 Hello User,
-                Welcome to lasu Calculator.
+                Welcome to Unique Calculator.
                 ->  Enter 1 for addition.
                 ->  Enter 2 for absolute subtraction.
                 ->  Enter 3 for multiplication.
@@ -27,5 +27,6 @@ public class CalculatorMain {
             case 4 -> System.out.println(calculator.divide(firstNumber, secondNumber));
             default-> System.out.print("Oga choose something reasonable");
         }
+        System.out.println(Calculator.randomMathematicalExpression());
     }
 }
