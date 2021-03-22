@@ -25,5 +25,7 @@ public class NewKata {
 
         System.out.println("The greater number is " + higher);
         System.out.println("The lesser number is " + less);
+
         }
+
     }

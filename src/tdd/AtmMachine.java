@@ -2,24 +2,18 @@ package tdd;
 
 public class AtmMachine {
     double mainBalance;
-    int pin;
+    String pin;
 
-    public void createPin(int newPin) {
+    public void createPin(String newPin) {
         pin = newPin;
     }
     public boolean powerOn(int powerButton) {
-        if(powerButton == 1) {
-            return true;
-        }
-        if(powerButton == 0) {
-            return false;
-        }
-        return false;
+        return powerButton == 1;
     }
-    public void withdraw(double withdrawal, int pin) {
+    public void withdraw(double withdrawal, String pin) {
         if(withdrawal < 0 || withdrawal>mainBalance){
             System.out.println("Insufficient Fund");
-            if(this.pin != pin)
+            if(!this.pin.equals(pin))
                 System.out.println("Invalid Pin");
             withdrawal = 0;
         }
@@ -29,48 +23,42 @@ public class AtmMachine {
         return mainBalance;
     }
 
-    public void balance(double balance) {
+    public  void balance(double balance) {
         if(balance > 0 )
         mainBalance = balance + mainBalance;
     }
 
-    public int pin() {
+    public String pin() {
         return pin;
     }
 
-    public void transfer(double newTransfer, int exactPin) {
-        if(newTransfer < 0 || newTransfer > mainBalance){
+    public void transfer(double newTransfer, String exactPin) {
+        if(newTransfer < 0) {
             newTransfer = 0;
             System.out.println("Insufficient Fund");
         }
-        if(exactPin == pin)
+        else if(newTransfer > 0 ){
+            mainBalance = mainBalance - newTransfer;
+            System.out.println("Transaction Successful");
+        }
+        if(exactPin.equals(pin))
             mainBalance = mainBalance - newTransfer;
             else
             System.out.println("Invalid Pin");
-
-        mainBalance = mainBalance - newTransfer;
     }
-    public void setNewPin(int changePin){
+    public void setNewPin(String changePin){
         pin = changePin;
     }
-    public void payUtilityBills(double bill, int pin){
-        if(bill > 0 || this.pin == pin) {
+
+    public void payUtilityBillsAndBuyAirtime(double bill, String pin){
+        if(bill > 0 && this.pin.equals(pin)) {
             mainBalance = mainBalance - bill;
         }
-        if(this.pin != pin)
+        if(!this.pin.equals(pin))
             System.out.println("Invalid Pin");
         if(bill < 0)
             System.out.println("Insufficient Fund");
     }
-    void buyAirtime(double airtime, int pin){
-        if(airtime <= 1000 || airtime >0) {
-            mainBalance = mainBalance - airtime;
-        }else if (airtime > mainBalance) {
-            System.out.println("Insufficient Fund");
-        }
-            if(this.pin == pin)
-            mainBalance = mainBalance - airtime;
-            else
-                System.out.println("Invalid Pin");
-    }
+
+
 }

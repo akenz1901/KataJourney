@@ -1,43 +1,40 @@
 package chapterFour;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
+
 public class Kata {
+    enum GRADE {PASSED, FAILED, BEG_TO_PASS,INVALID}
     Scanner collector = new Scanner(System.in);
 
-    public double calculateAverage(int average) {
-        average = 0;
+    public double calculateAverage() {
+        int average = 0;
         int number;
-        int allAveragenumber = 0;
-        while (allAveragenumber < 3) {
+        int allAverageNumber = 0;
+        while (allAverageNumber < 3) {
             System.out.print("Enter number: ");
             number = collector.nextInt();
             average = average + number;
-            allAveragenumber++;
+            allAverageNumber++;
         }
-        //double average = (firstNumber + secondNumber + thirdNumber) / 3;
         return average / 3.0;
     }
 
-    public String calculateGrade(int grade) {
+    public GRADE calculateGrade(int grade) {
         if (grade > 100)
-            return "Invalid Score";
+            return GRADE.INVALID;
         if (grade >= 90)
-            return "A";
+            return GRADE.PASSED;
         else if (grade >= 80)
-            return "B";
+            return GRADE.PASSED;
         else if (grade >= 70)
-            return "C";
+            return GRADE.BEG_TO_PASS;
         else
-            return "F";
+            return GRADE.FAILED;
     }
 
     public boolean isEven(int isItEven) {
-        if (isItEven % 2 == 0)
-            return true;
-        else
-            return false;
+        return isItEven % 2 == 0;
     }
 
     public boolean isPrime(int number) {
@@ -50,11 +47,9 @@ public class Kata {
         }
         return true;
     }
-    public double copiesPrice(int price){
+    public static double copiesPrice(){
         Scanner collector = new Scanner(System.in);
-        if(price < 0){
-            return price;
-        }
+        int userInput;
         String newPriceList = """
                 How Many Copies do you want to buy?
                 
@@ -67,8 +62,8 @@ public class Kata {
                 Select 7 for 200 Above copies Price
                 """;
         System.out.println(newPriceList);
-        int chairmanInput = collector.nextInt();
-        switch (chairmanInput) {
+        userInput = collector.nextInt();
+        switch (userInput) {
             case 1 -> System.out.print("Price for your cart is " + (1500 * 1.0));
             case 2 -> System.out.print("Price for your cart is " + ((1500 - 100) * 1.0));
             case 3 -> System.out.print("Price for your cart is " + ((1500 - 200) * 1.0));
@@ -78,7 +73,21 @@ public class Kata {
             case 7 -> System.out.print("Price for your cart is " + ((1500 - 600) * 1.0));
             default -> System.out.print("Oga behave na");
         }
-        return price = chairmanInput;
+        return userInput;
     }
-}
+    public boolean checkTheFactorsOfANumber(){
+        System.out.print("Enter a number: ");
+        int number = collector.nextInt();
+        int factorNumber = 2;
+        while(factorNumber<number){
+            if(number % factorNumber == 0 ) {
+                System.out.println("The Number Of factor are " + factorNumber);
+            }
+            factorNumber++;
+        }
+        if(number % factorNumber != 0 )
+            System.out.println("The Number Of factor are " + factorNumber);
+        return false;
+    }
 
+}

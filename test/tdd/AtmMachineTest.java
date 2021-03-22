@@ -6,66 +6,68 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AtmMachineTest {
-    @Test
-    void atmPowerNeedsToBeOn(){
-        //given
         AtmMachine newAtm = new AtmMachine();
-        //assert
-        assertTrue(newAtm.powerOn(1));
-    }
-    @Test
-    void pinMustBeCreatedBeforeAnyTransaction(){
-        AtmMachine akenzPin =  new AtmMachine();
-        akenzPin.createPin(1111);
-        assertEquals(1111, akenzPin.pin());
-    }
-    @Test
-    @DisplayName("Account Balance is Needed")
-    void thereMustBeAnAvailableBalance(){
-        AtmMachine uniqueBalance = new AtmMachine();
-        uniqueBalance.balance(1000);
-        assertEquals(1000, uniqueBalance.availableBalance());
-    }
 
-    @Test
-    void withdrawalShallBeEffective(){
-    AtmMachine michaelBalance = new AtmMachine();
-    michaelBalance.balance(4000);
-    michaelBalance.createPin(1111);
-    michaelBalance.withdraw(2200,1111);
 
-    assertEquals(1800, michaelBalance.availableBalance());
-    }
-    @Test
-    void nowNegativeWithdrawalShallOccur(){
-        AtmMachine wasiuWithdrawal = new AtmMachine();
-        wasiuWithdrawal.createPin(1212);
-        wasiuWithdrawal.withdraw(-3000,1212);
-        assertEquals(wasiuWithdrawal.availableBalance(), 0);
-    }
-    @Test
-    void atmMachineShouldNotAllowWithdrawalIfPinIsNotCorrect(){
-        AtmMachine akenzPin = new AtmMachine();
-        akenzPin.balance(4000);
-        akenzPin.createPin(1234);
-        akenzPin.withdraw(3000,1234);
-        assertEquals(akenzPin.availableBalance(),1000);
-    }
-    @Test
-    void atmMachineShallTransferFundToAnotherAccount(){
-        AtmMachine tundePos = new AtmMachine();
-        tundePos.balance(10000);
-        tundePos.createPin(1222);
-        tundePos.transfer(10000, 1222);
+        @Test
+        void atmPowerNeedsToBeOn() {
+            //given
+            //assert
+            assertTrue(newAtm.powerOn(1));
+        }
+        @Test
+        void pinMustBeCreatedBeforeAnyTransaction () {
+            newAtm.createPin("1111");
+            assertEquals("1111", newAtm.pin());
+        }
+        @Test
+        @DisplayName("Account Balance is Needed")
+        void thereMustBeAnAvailableBalance () {
+            newAtm.balance(1000);
+            assertEquals(1000, newAtm.availableBalance());
+        }
 
-        assertEquals(tundePos.availableBalance(), 0);
-    }
-    @Test
-    void atmMachineShallNotAllowNegativeTransfer() {
-        AtmMachine tundePos = new AtmMachine();
-        tundePos.createPin(1222);
-        tundePos.transfer(-9000, 1222);
-        assertEquals(tundePos.availableBalance(), 0);
+        @Test
+        void withdrawalShallBeEffective () {
+            newAtm.balance(4000);
+            newAtm.createPin("1111");
+            newAtm.withdraw(2200, "1111");
 
-    }
+            assertEquals(1800, newAtm.availableBalance());
+        }
+        @Test
+        void nowNegativeWithdrawalShallOccur () {
+            newAtm.createPin("1212");
+            newAtm.withdraw(-3000, "1212");
+            assertEquals(newAtm.availableBalance(), 0);
+        }
+        @Test
+        void atmMachineShouldNotAllowWithdrawalIfPinIsNotCorrect () {
+            newAtm.balance(4000);
+            newAtm.createPin("1234");
+            newAtm.withdraw(3000, "1234");
+            assertEquals(newAtm.availableBalance(), 1000);
+        }
+        @Test
+        void atmMachineShallTransferFundToAnotherAccount () {
+            newAtm.balance(10000);
+            newAtm.createPin("1222");
+            newAtm.transfer(10000, "1222");
+
+            assertEquals(newAtm.availableBalance(), 0);
+        }
+        @Test
+        void atmMachineShallNotAllowNegativeTransfer () {
+            newAtm.createPin("1222");
+            newAtm.transfer(-9000, "1222");
+            assertEquals(newAtm.availableBalance(), 0);
+
+        }
+        @Test
+        @DisplayName("User should be able to change pin")
+        void changingOfPin(){
+            newAtm.setNewPin("1118");
+            assertEquals("1118",newAtm.pin());
+        }
+
 }
