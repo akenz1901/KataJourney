@@ -5,18 +5,21 @@ public class PassengerInfo {
     private String lastName;
     private String passengerDestination;
 
-    public void passengerName(String firstName, String lastName){
+    public void passengerName(String firstName, String lastName, String destination){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.passengerDestination = destination;
     }
-    public String getNames(){
-        return firstName + lastName;
+    public String getFullName(){
+        return firstName + " " + lastName;
     }
-    public void createPassengerDestination(String destination){
+    public void setDestination(String destination){
         passengerDestination = destination;
     }
-    public String getPassengerDestination(){
+    public String getDestination(){
         return passengerDestination;
     }
+
+
 
 }

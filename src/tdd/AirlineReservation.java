@@ -7,12 +7,18 @@ public class AirlineReservation {
 
     private ClassTypes typeOfFlightClass;
     private boolean checkSeatSelection;
+    private PassengerInfo passenger;
     private final boolean[] numberOfSeat = new boolean[10];
-    private String passengerNames;
-    PassengerInfo passengerInfo = new PassengerInfo();
+
+
+//    public AirlineReservation(ClassTypes typeOfFlightClass, boolean checkSeatSelection, PassengerInfo passenger, String passengerNames) {
+//        this.typeOfFlightClass = typeOfFlightClass;
+//        this.checkSeatSelection = checkSeatSelection;
+//        this.passenger.passengerName("hdhf","dhff",null);
+//    }
 
     public void isThereSeatAvailableFor(ClassTypes classType) {
-        if (!classType.equals(ClassTypes.BUSINESS))
+        if (classType.equals(ClassTypes.FIRST_CLASS) | classType.equals(ClassTypes.ECONOMY))
             typeOfFlightClass = classType;
 
     }
@@ -23,15 +29,13 @@ public class AirlineReservation {
 
     public void isSeatAvailableForClassType(int seatNumber, ClassTypes classType) {
         for (int counter = 0; counter < 5; counter++) {
-            if (classType.equals(ClassTypes.FIRST_CLASS) && seatNumber <= 5 && seatNumber >= 0) {
+            if (classType.equals(ClassTypes.FIRST_CLASS) && seatNumber <= 5 && seatNumber >= 0) { //
                 numberOfSeat[seatNumber-1] = true;
-                typeOfFlightClass = classType;
                 checkSeatSelection = true;
             }
-            for (int newCounter = 5; newCounter < numberOfSeat.length; newCounter++) {
-                if (classType.equals(ClassTypes.ECONOMY) && seatNumber > 5 && seatNumber <= numberOfSeat.length) {
+            for (counter = 5; counter <=numberOfSeat.length; counter++) {
+                if (classType.equals(ClassTypes.ECONOMY) && seatNumber > 5 && seatNumber <= numberOfSeat.length) { //
                     numberOfSeat[seatNumber] = true;
-                    typeOfFlightClass = classType;
                     checkSeatSelection = true;
                     break;
                 }
@@ -41,22 +45,14 @@ public class AirlineReservation {
     public boolean assignSeat() {
         return checkSeatSelection;
     }
-
-    public void passengerInfo(String firstName,String lastName) {
-        passengerInfo.passengerName(firstName,lastName);
+    public void passengerInfo(String firstName, String lastName, String destination){
+        passenger.passengerName(firstName, lastName, destination);
     }
-    public String getPassengerNames(){
-        return passengerNames = passengerInfo.getNames();
-    }
-
-    public void passengerDestination(String location) {
-        if(passengerNames!=null)
-            if(checkSeatSelection=true)
-                passengerInfo.createPassengerDestination(location);
-
+    public PassengerInfo getPassenger(){
+        return toString(passenger.getFullName());
     }
 
-    public String getPassengerDestination() {
-        return passengerInfo.getPassengerDestination();
+    private PassengerInfo toString(String fullName) {
+        return passenger;
     }
 }

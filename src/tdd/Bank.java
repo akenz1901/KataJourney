@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Bank {
     private int createAccountNumber;
     ArrayList<Account> accounts = new ArrayList<>();
-
-    //    public void createAccountName(String firstName, String lastName){
+//
+//        public void createAccountName(String firstName, String lastName){
 //        accountName = firstName + lastName;
 //    }
 //    public String getAccountName() {
