@@ -1,5 +1,7 @@
 package chapterFour;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 
@@ -89,5 +91,18 @@ public class Kata {
             System.out.println("The Number Of factor are " + factorNumber);
         return false;
     }
+    public String arithmeticNumbers(int firstNumber, int secondNumber){
+        int sum = firstNumber + secondNumber;
+        System.out.println(sum+ " is the sum of " + firstNumber + " and " + secondNumber);
+        int subtraction = firstNumber - secondNumber;
+        System.out.println(subtraction+ " is the subtraction of " + firstNumber + " and " + secondNumber);
+        int difference = firstNumber * secondNumber;
+        System.out.println(difference+ " is the difference between " + firstNumber + " and " + secondNumber);
+        int quotient = firstNumber/secondNumber;
+        return quotient * 1.0 + " is the quotient of" + firstNumber + " and " + secondNumber;
+
+
+    }
+
 
 }

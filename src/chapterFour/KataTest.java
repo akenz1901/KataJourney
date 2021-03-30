@@ -9,6 +9,7 @@ public class KataTest {
             System.out.println("Is It Prime Number ? " + kata.isPrime(7));
             System.out.println(Kata.copiesPrice());
             System.out.println(kata.checkTheFactorsOfANumber());
+            System.out.println(kata.arithmeticNumbers(29,3));
 
         }
     }
