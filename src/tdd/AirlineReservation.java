@@ -4,15 +4,15 @@ package tdd;
 import chapterFour.ClassTypes;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AirlineReservation {
 
     private ClassTypes typeOfFlightClass;
     private boolean checkSeatSelection;
     private final boolean[] numberOfSeat = new boolean[10];
-    private ArrayList <PassengerInfo> passengerSeat = new ArrayList<>();
-
+    private final ArrayList <PassengerInfo> passengerSeat = new ArrayList<>();
+    private String passengerDestination;
+    private String passengerNames;
     public void isThereSeatAvailableFor(ClassTypes classType) {
         if (classType.equals(ClassTypes.FIRST_CLASS) | classType.equals(ClassTypes.ECONOMY))
             typeOfFlightClass = classType;
@@ -25,12 +25,12 @@ public class AirlineReservation {
 
     public void isSeatAvailableForClassType(int seatNumber, ClassTypes classType) {
         for (int counter = 0; counter < 5; counter++) {
-            if (classType.equals(ClassTypes.FIRST_CLASS) && seatNumber <= 5 && seatNumber >= 0) { //
+            if (classType.equals(ClassTypes.FIRST_CLASS) && seatNumber <= 5 && seatNumber >= 0) {
                 numberOfSeat[seatNumber-1] = true;
                 checkSeatSelection = true;
             }
             for (counter = 5; counter <=numberOfSeat.length; counter++) {
-                if (classType.equals(ClassTypes.ECONOMY) && seatNumber > 5 && seatNumber <= numberOfSeat.length) { //
+                if (classType.equals(ClassTypes.ECONOMY) && seatNumber > 5 && seatNumber <= numberOfSeat.length) {
                     numberOfSeat[seatNumber] = true;
                     checkSeatSelection = true;
                     break;
@@ -42,14 +42,19 @@ public class AirlineReservation {
         return checkSeatSelection;
     }
 
-    public void passengerInfo(String firstName, String lastName, String destination){
-        PassengerInfo passenger = new PassengerInfo(firstName, lastName, destination);
+    public void passengerInfo(String firstName, String lastName,String destination){
+        PassengerInfo passenger = new PassengerInfo(firstName, lastName,destination);
+        if(passengerNames !=null)
         passengerSeat.add(passenger);
-        
-    }
-    public List<PassengerInfo> getPassenger(){
-
-        return passengerSeat;
+        passengerNames = passenger.getFullName();
+        passengerDestination = passenger.getDestination();
     }
 
+    public String getPassenger() {
+            return passengerNames;
+
+        }
+    public String getDestination() {
+        return passengerDestination;
+    }
 }

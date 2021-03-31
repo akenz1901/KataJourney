@@ -52,44 +52,14 @@ public class AirlineReservationTest {
         assertFalse(airlineReservation.assignSeat());
     }
     @Test
-    void passengerCanBeCreated(){
-        airlineReservation.passengerInfo("Hon","Dickson","London");
-        assertEquals("huh",airlineReservation.getPassenger());
+    void passengerCanBeCreated_WithDestination(){
+        airlineReservation.passengerInfo("Hon","Dickson","Spain");
+        assertEquals("Hon Dickson",airlineReservation.getPassenger());
+        assertEquals("Spain", airlineReservation.getDestination());
     }
-//    @Test
-//    void passengerDestinationCanBeAssignedWithCustomersName(){
-//        airlineReservation.passengerInfo("Michael", "Olashile");
-//        airlineReservation.getPassengerNames();
-//        airlineReservation.passengerDestination("New York");
-//        assertEquals("New York", airlineReservation.getPassengerDestination());
-//    }
-//    @Test
-//    void passengerCanBeAssignedWithSeatForBoardingPass(){
-//        airlineReservation.passengerInfo("Michael ","Akinsanya");
-//        assertEquals("Michael Akinsanya",airlineReservation.getPassengerNames());
-//        airlineReservation.passengerDestination("London");
-//        assertEquals("London", airlineReservation.getPassengerDestination());
-//
-//        airlineReservation.isSeatAvailableForClassType(9, ClassTypes.ECONOMY);
-//        assertTrue(airlineReservation.assignSeat());
-//    }
-//    @Test
-//    void singlePassenger_cannotBookForASeatTwice(){
-//        airlineReservation.passengerInfo("Michael ","Kelvin");
-//        airlineReservation.getPassengerNames();
-//        airlineReservation.passengerDestination("London");
-//        airlineReservation.getPassengerDestination();
-//
-//        airlineReservation.isSeatAvailableForClassType(1, ClassTypes.FIRST_CLASS);
-//        assertTrue(airlineReservation.assignSeat());
-//
-//        airlineReservation.passengerInfo("Michael ","Kelvin");
-//        assertEquals("Michael Kelvin",airlineReservation.getPassengerNames());
-//        airlineReservation.passengerDestination("London");
-//        assertEquals("London", airlineReservation.getPassengerDestination());
-//
+    @Test
+    void passenger_canBeAssignedToSeat(){
 
-//        airlineReservation.isSeatAvailableForClassType(2, ClassTypes.FIRST_CLASS);
-//        assertTrue(airlineReservation.assignSeat());
-//    }
+    }
+
 }
