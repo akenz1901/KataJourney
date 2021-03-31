@@ -5,7 +5,10 @@ public class PassengerInfo {
     private String lastName;
     private String passengerDestination;
 
-    public void passengerName(String firstName, String lastName, String destination){
+    public PassengerInfo(){
+
+    }
+    public PassengerInfo(String firstName, String lastName, String destination){
         this.firstName = firstName;
         this.lastName = lastName;
         this.passengerDestination = destination;

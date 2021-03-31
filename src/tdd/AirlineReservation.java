@@ -3,19 +3,15 @@ package tdd;
 
 import chapterFour.ClassTypes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AirlineReservation {
 
     private ClassTypes typeOfFlightClass;
     private boolean checkSeatSelection;
-    private PassengerInfo passenger;
     private final boolean[] numberOfSeat = new boolean[10];
-
-
-//    public AirlineReservation(ClassTypes typeOfFlightClass, boolean checkSeatSelection, PassengerInfo passenger, String passengerNames) {
-//        this.typeOfFlightClass = typeOfFlightClass;
-//        this.checkSeatSelection = checkSeatSelection;
-//        this.passenger.passengerName("hdhf","dhff",null);
-//    }
+    private ArrayList <PassengerInfo> passengerSeat = new ArrayList<>();
 
     public void isThereSeatAvailableFor(ClassTypes classType) {
         if (classType.equals(ClassTypes.FIRST_CLASS) | classType.equals(ClassTypes.ECONOMY))
@@ -45,14 +41,15 @@ public class AirlineReservation {
     public boolean assignSeat() {
         return checkSeatSelection;
     }
+
     public void passengerInfo(String firstName, String lastName, String destination){
-        passenger.passengerName(firstName, lastName, destination);
+        PassengerInfo passenger = new PassengerInfo(firstName, lastName, destination);
+        passengerSeat.add(passenger);
+        
     }
-    public PassengerInfo getPassenger(){
-        return toString(passenger.getFullName());
+    public List<PassengerInfo> getPassenger(){
+
+        return passengerSeat;
     }
 
-    private PassengerInfo toString(String fullName) {
-        return passenger;
-    }
 }
