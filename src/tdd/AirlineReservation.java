@@ -13,6 +13,7 @@ public class AirlineReservation {
     private final ArrayList <PassengerInfo> passengerSeat = new ArrayList<>();
     private String passengerDestination;
     private String passengerNames;
+
     public void isThereSeatAvailableFor(ClassTypes classType) {
         if (classType.equals(ClassTypes.FIRST_CLASS) | classType.equals(ClassTypes.ECONOMY))
             typeOfFlightClass = classType;
@@ -43,11 +44,16 @@ public class AirlineReservation {
     }
 
     public void passengerInfo(String firstName, String lastName,String destination){
+        String newPassengerSeat []= new String[11];
         PassengerInfo passenger = new PassengerInfo(firstName, lastName,destination);
-        if(passengerNames !=null)
         passengerSeat.add(passenger);
         passengerNames = passenger.getFullName();
         passengerDestination = passenger.getDestination();
+        for(int seatCoordinator =1 ; seatCoordinator<newPassengerSeat.length; seatCoordinator++ ){
+            if(checkSeatSelection)
+            newPassengerSeat[seatCoordinator] = passengerNames;
+            System.out.println(newPassengerSeat[seatCoordinator]);
+        }
     }
 
     public String getPassenger() {
@@ -56,5 +62,9 @@ public class AirlineReservation {
         }
     public String getDestination() {
         return passengerDestination;
+    }
+
+    public String passengerOnSeat() {
+        return passengerNames;
     }
 }

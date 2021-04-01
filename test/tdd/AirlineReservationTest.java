@@ -58,7 +58,18 @@ public class AirlineReservationTest {
         assertEquals("Spain", airlineReservation.getDestination());
     }
     @Test
+    void destination_cannotBeSetIfPassenger_doesNotBook(){
+        airlineReservation.passengerInfo(null,null,"Spain");
+        assertNotSame("Spain", airlineReservation.getDestination());
+    }
+    @Test
     void passenger_canBeAssignedToSeat(){
+        String[] seats = new String[10];
+        airlineReservation.isSeatAvailableForClassType(6,ClassTypes.ECONOMY);
+        assertTrue(airlineReservation.assignSeat());
+        airlineReservation.passengerInfo("Abadi","Mariam", "Ibadan");
+        seats[1] = "Abadi Mariam";
+        assertFalse(!airlineReservation.passengerOnSeat().equals("Abadi Mariam"));
 
     }
 

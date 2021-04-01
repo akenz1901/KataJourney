@@ -17,13 +17,12 @@ public class PassengerInfo {
     public PassengerInfo(String firstName, String lastName, String destination){
         this.firstName = firstName;
         this.lastName = lastName;
+        boolean isNameValid = this.firstName != null && this.lastName!=null;
+        if(isNameValid)
         this.passengerDestination = destination;
     }
     public String getFullName(){
         return firstName + " " + lastName;
-    }
-    public void setDestination(String destination){
-        passengerDestination = destination;
     }
     public String getDestination(){
         return passengerDestination;
