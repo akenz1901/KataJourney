@@ -64,13 +64,16 @@ public class AirlineReservationTest {
     }
     @Test
     void passenger_canBeAssignedToSeat(){
-        String[] seats = new String[10];
-        airlineReservation.isSeatAvailableForClassType(6,ClassTypes.ECONOMY);
-        assertTrue(airlineReservation.assignSeat());
-        airlineReservation.passengerInfo("Abadi","Mariam", "Ibadan");
-        seats[1] = "Abadi Mariam";
-        assertFalse(!airlineReservation.passengerOnSeat().equals("Abadi Mariam"));
+        airlineReservation.assignSeatForPassenger(1,"Fowler","Martin",ClassTypes.FIRST_CLASS);
+        assertEquals("Fowler Martin", airlineReservation.getPassenger());
+    }
+    @Test
+    void twoPassengers_cannotBeAssignedToOneSeat(){
+        airlineReservation.assignSeatForPassenger(1,"Fowler","Martin",ClassTypes.FIRST_CLASS);
+        assertEquals("Fowler Martin", airlineReservation.getPassenger());
 
+        airlineReservation.assignSeatForPassenger(5,"Akenz","Martin",ClassTypes.FIRST_CLASS);
+        assertEquals("Akenz Martin", airlineReservation.getPassenger());
     }
 
 }

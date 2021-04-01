@@ -44,16 +44,27 @@ public class AirlineReservation {
     }
 
     public void passengerInfo(String firstName, String lastName,String destination){
-        String newPassengerSeat []= new String[11];
         PassengerInfo passenger = new PassengerInfo(firstName, lastName,destination);
         passengerSeat.add(passenger);
         passengerNames = passenger.getFullName();
         passengerDestination = passenger.getDestination();
-        for(int seatCoordinator =1 ; seatCoordinator<newPassengerSeat.length; seatCoordinator++ ){
-            if(checkSeatSelection)
-            newPassengerSeat[seatCoordinator] = passengerNames;
-            System.out.println(newPassengerSeat[seatCoordinator]);
+//        for(int seatCoordinator =1 ; seatCoordinator<newPassengerSeat.length;  seatCoordinator++){
+//            if(checkSeatSelection)
+//            newPassengerSeat[seatCoordinator] = passengerNames;
+//            System.out.println(newPassengerSeat[seatCoordinator]);
+//            if(newPassengerSeat[1] == passengerNames)
+//                break;
+//        }
+    }
+    public void assignSeatForPassenger(int seatNumber, String firstName,String lastName, ClassTypes classType){
+        String[] newPassengerSeat = new String[11];
+        PassengerInfo passenger = new PassengerInfo(firstName,lastName);
+        passengerNames = passenger.getFullName();
+        int seatHolder = 0;
+        for(seatNumber=1; seatNumber<newPassengerSeat.length; ){
+            newPassengerSeat[seatNumber] = passengerNames;
         }
+
     }
 
     public String getPassenger() {
