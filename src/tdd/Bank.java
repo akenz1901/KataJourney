@@ -1,25 +1,30 @@
 package tdd;
 
-import java.util.ArrayList;
-
 public class Bank {
-    private int createAccountNumber;
-    ArrayList<Account> accounts = new ArrayList<>();
-//
-//        public void createAccountName(String firstName, String lastName){
-//        accountName = firstName + lastName;
-//    }
-//    public String getAccountName() {
-//        accountName = Account.getAccountInfo();
-//        return accountName;
-//    }
-    public void generateAccountNumber(int accountNumber){
-        accounts.add(accountNumber, (null));
-        createAccountNumber = accountNumber;
-}
-    public int getAccountNumber() {
-        return createAccountNumber;
+
+    private int accountID;
+    private double balance;
+    private double [] accounts= new double[10];
+
+    public void createAccountNumber(int accountNumber,double balance) {
+        for(int counter=1; counter<accounts.length; ) {
+            if(accountNumber != 0 && balance != 0)
+            accounts[accountNumber] = this.balance;
+            System.out.println(accounts[accountNumber]);
+            accountID = accountNumber;
+            break;
+        }
+    }
+    public int getAccount() {
+        return accountID;
     }
 
+    public void deposit(double deposit) {
+        balance+=deposit;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
 
 }

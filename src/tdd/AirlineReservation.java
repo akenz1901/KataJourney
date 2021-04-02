@@ -63,6 +63,7 @@ public class AirlineReservation {
         int seatHolder = 0;
         for(seatNumber=1; seatNumber<newPassengerSeat.length; ){
             newPassengerSeat[seatNumber] = passengerNames;
+            seatNumber++;
         }
 
     }
