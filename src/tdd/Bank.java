@@ -6,10 +6,11 @@ public class Bank {
     private double balance;
     private double [] accounts= new double[10];
 
-    public void createAccountNumber(int accountNumber,double balance) {
+    public void createAccountNumber(int accountNumber, double balance) {
         for(int counter=1; counter<accounts.length; ) {
-            if(accountNumber != 0 && balance != 0)
-            accounts[accountNumber] = this.balance;
+            if(accountNumber != 0)
+            accounts[accountNumber] = balance;
+            this.balance = balance;
             System.out.println(accounts[accountNumber]);
             accountID = accountNumber;
             break;
@@ -20,6 +21,7 @@ public class Bank {
     }
 
     public void deposit(double deposit) {
+
         balance+=deposit;
     }
 
