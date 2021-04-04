@@ -49,4 +49,11 @@ public class BankTest {
         System.out.println(mavens.getBalance());
 
     }
+    @Test
+    void bank_cannotDepositNegativeAmount(){
+        mavens.deposit(-4000);
+        mavens.createAccountNumber(2, 0);
+        assertEquals(2, mavens.getAccount());
+        assertEquals(0, mavens.getBalance());
+    }
 }
