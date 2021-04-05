@@ -7,12 +7,12 @@ public class Bank {
     private double [] accounts= new double[10];
 
     public void createAccountNumber(int accountNumber, double balance) {
-            balance =this.balance;
         for(int counter=1; counter<accounts.length; ) {
             if(accountNumber != 0)
+            balance = this.balance;
             accounts[accountNumber] = balance;
-            System.out.println(accounts[accountNumber]);
             accountID = accountNumber;
+            System.out.println(accounts[accountNumber]);
             break;
         }
     }
@@ -29,4 +29,7 @@ public class Bank {
         return balance;
     }
 
+    public void withdraw(int withdraw) {
+        balance-=withdraw;
+    }
 }
