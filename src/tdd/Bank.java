@@ -9,9 +9,8 @@ public class Bank {
     public void createAccountNumber(int accountNumber, double balance) {
         for(int counter=1; counter<accounts.length; ) {
             if(accountNumber != 0)
-            balance = this.balance;
-            accounts[accountNumber] = balance;
             accountID = accountNumber;
+            accounts[accountNumber] = balance;
             System.out.println(accounts[accountNumber]);
             break;
         }
@@ -20,7 +19,7 @@ public class Bank {
         return accountID;
     }
 
-    public void deposit(double deposit) {
+    public void deposit(int deposit) {
         if(deposit>0)
         balance+=deposit;
     }
