@@ -37,14 +37,14 @@ public class BankTest {
     }
     @Test
     void bank_canDepositIntoSeparateAccounts(){
-        mavens.deposit(3000);
+        mavens.deposit(9000);
         mavens.createAccountNumber(2, 3000);
         assertEquals(2, mavens.getAccount());
         assertEquals(3000, mavens.getBalance());
 
         mavens.deposit(2000);
-        mavens.createAccountNumber(4, 2000);
-        assertEquals(4, mavens.getAccount());
+        mavens.createAccountNumber(1, 2000);
+        assertEquals(1, mavens.getAccount());
         assertEquals(2000, mavens.getBalance());
         System.out.println(mavens.getBalance());
 
@@ -52,9 +52,9 @@ public class BankTest {
     @Test
     void bank_cannotDepositNegativeAmount(){
         mavens.deposit(-4000);
-        mavens.createAccountNumber(2, 39);
+        mavens.createAccountNumber(0, 39);
         assertEquals(0, mavens.getBalance());
-        assertEquals(2, mavens.getAccount());
+        assertEquals(0, mavens.getAccount());
     }
     @Test
     void bank_canWithdraw(){
