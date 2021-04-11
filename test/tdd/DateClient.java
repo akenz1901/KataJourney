@@ -12,7 +12,6 @@ public class DateClient {
     void startAllWith(){
         nigeriaDate = new Date();
     }
-
     @Test
     void date_canBeCreatedForDate() {
         nigeriaDate.setDate(6, 12, 2021);
@@ -26,6 +25,13 @@ public class DateClient {
         assertEquals(0, nigeriaDate.getDay());
         assertEquals(0, nigeriaDate.getMonth());
         assertEquals(0, nigeriaDate.getYear());
+    }
+    @Test
+    void date_canBeUsedWithConstructor(){
+        nigeriaDate = new Date(29, 12, 2022);
+        assertEquals(29, nigeriaDate.getDay());
+        assertEquals(12, nigeriaDate.getMonth());
+        assertEquals(2022, nigeriaDate.getYear());
     }
 
 }

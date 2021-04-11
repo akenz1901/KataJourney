@@ -15,9 +15,10 @@ public class Date {
         this(day,month,0);
     }
     public Date(int day, int month, int year){
-
+        validatingDay(day);
+        validatingMonth(month);
+        validatingYear(year);
     }
-
     public void setDate(int day, int month, int year) {
         validatingDay(day);
         validatingMonth(month);
