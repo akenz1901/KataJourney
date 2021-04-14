@@ -23,8 +23,14 @@ public class DateClient {
     void invalidDay_canThrowException(){
         assertThrows(IllegalArgumentException.class,()->nigeriaDate.setDate(56,2,2021));
     }
-
-    
+    @Test
+    void invalidMonth_canThrowException(){
+        assertThrows(IllegalArgumentException.class,()->nigeriaDate.setDate(20,47,2021));
+    }
+    @Test
+    void invalidYear_canThrowException(){
+        assertThrows(IllegalArgumentException.class,()->nigeriaDate.setDate(20,8,2056));
+    }
     @Test
     void date_canBeUsedWithConstructor(){
         nigeriaDate = new Date(29, 12, 2022);
