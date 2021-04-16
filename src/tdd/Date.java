@@ -52,7 +52,5 @@ public class Date {
         return month;
     }
 
-    public int getYear() {
-        return year;
-    }
+    public int getYear() { return year;}
 }
