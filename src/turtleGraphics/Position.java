@@ -41,4 +41,12 @@ public class Position {
         return columnAreEqual && rowsAreEqual;
 
     }
+
+    public int getRowPosition() {
+        return rowPosition;
+    }
+
+    public int getColumnPosition() {
+        return columnPosition;
+    }
 }
