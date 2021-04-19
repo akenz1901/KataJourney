@@ -14,14 +14,19 @@ public class Position {
     public void increaseRowPositionBy(int numberOfRowSteps){
         rowPosition+=numberOfRowSteps;
     }
+    public void decreaseColumnPositionBy(int numberOfSteps){
+        columnPosition-=numberOfSteps;
+    }
+    public void decreaseRowPositionBy(int numberOfRowSteps) {
+        rowPosition-=numberOfRowSteps;
+    }
 
     @Override
     public String toString() {
         String toString = "Position\n";
         toString += "Current Row Position " + rowPosition + "\n";
         toString += "Current Column Position " + columnPosition;
-        return toString;
-//        return String.format("Current Row Position %d\nCurrent Column Position %d", rowPosition,columnPosition);
+        return toString;//        return String.format("Current Row Position %d\nCurrent Column Position %d", rowPosition,columnPosition);
 //        return "Position{" + "rowPosition=" + rowPosition + ", columnPosition=" + columnPosition + '}';
     }
     @Override
@@ -36,5 +41,4 @@ public class Position {
         return columnAreEqual && rowsAreEqual;
 
     }
-
 }

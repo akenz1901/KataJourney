@@ -7,13 +7,13 @@ public class Bank {
     private double [] accounts= new double[10];
 
     public void createAccountNumber(int accountNumber, double balance) {
-        for(int counter=1; counter<accounts.length; ) {
-            if(accountNumber != 0)
-            accountID = accountNumber;
-            accounts[accountNumber] = balance;
-            System.out.println(accounts[accountNumber]);
-            break;
-        }
+//        for(int counter=1; counter<accounts.length; ) {
+//            if(accountNumber != 0)
+//            accountID = accountNumber;
+//            accounts[accountNumber] = balance;
+//            System.out.println(accounts[accountNumber]);
+//            break;
+//        }
     }
     public int getAccount() {
         return accountID;

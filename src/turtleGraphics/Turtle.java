@@ -52,10 +52,11 @@ public class Turtle {
         switch (currentDirection){
             case EAST -> currentPosition.increaseColumnPositionBy(numberOfSteps);
             case SOUTH -> currentPosition.increaseRowPositionBy(numberOfSteps);
+            case WEST -> currentPosition.decreaseColumnPositionBy(numberOfSteps);
+            case NORTH -> currentPosition.decreaseRowPositionBy(numberOfSteps);
 
         }
     }
-
     public Position getCurrentPosition() {
         return currentPosition;
     }

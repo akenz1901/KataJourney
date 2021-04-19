@@ -98,4 +98,25 @@ public class TurtleTest {
         assertEquals(new Position(5,0), turtle.getCurrentPosition());
     }
 
+    @Test
+    void turtleCanMoveForwardFacingWest(){
+        turtle.turnRight();
+        turtle.turnRight();
+        assertSame(WEST, turtle.getCurrentDirection());
+
+        turtle.moveForwardBy(4);
+        assertEquals(new Position(0, -4), turtle.getCurrentPosition());
+
+    }
+    @Test
+    void turtleCanMoveForwardFacingNorth(){
+        turtle.turnRight();
+        turtle.turnRight();
+        turtle.turnRight();
+        assertSame(NORTH, turtle.getCurrentDirection());
+
+        turtle.moveForwardBy(3);
+        assertEquals(new Position(-3, 0), turtle.getCurrentPosition());
+    }
+
 }
