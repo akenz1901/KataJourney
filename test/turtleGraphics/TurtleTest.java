@@ -166,7 +166,7 @@ public class TurtleTest {
         SketchPad sketchPad = new SketchPad(20,20);
 
         //when
-        int numberOfSteps =5;
+        int numberOfSteps = 5;
         turtle.writeOn(sketchPad,numberOfSteps);
         //assert
         int counter = 0;
