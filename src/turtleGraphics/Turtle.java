@@ -74,12 +74,19 @@ public class Turtle {
         if(!isPenUp()){
             int counter = 0;
             switch (currentDirection){
-                case EAST:
+                case EAST, WEST:
                     while(counter<numberOfSteps){
                         sketchPad.getFloor()[currentPosition.getRowPosition()][currentPosition.getColumnPosition()+counter] = 1;
                         counter++;
                     }
                     break;
+                case SOUTH:
+                    int rowPosition = currentPosition.getRowPosition();
+                    int columnPosition = currentPosition.getColumnPosition();
+                    while(counter<numberOfSteps){
+                        sketchPad.getFloor()[rowPosition+counter][columnPosition] = 1;
+                        counter++;
+                    }
             }
 
         }
