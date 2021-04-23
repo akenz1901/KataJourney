@@ -212,7 +212,6 @@ public class TurtleTest {
         turtle.movePenDown();
         turtle.writeOn(paper, numberOfSteps);
         int[][] floor = paper.getFloor();
-
         while(counter<numberOfSteps){
             assertEquals(1, floor[0][counter]);
             counter++;
@@ -220,13 +219,42 @@ public class TurtleTest {
         assertEquals(new Position(0, 4), turtle.getCurrentPosition());
 
         turtle.turnRight();
+        turtle.movePenDown();
         turtle.turnRight();
+        turtle.writeOn(paper, numberOfSteps);
         counter = 0;
         while(counter<numberOfSteps){
             assertEquals(1, floor[0][counter]);
             counter++;
         }
         assertEquals(new Position(0, 0), turtle.getCurrentPosition());
+    }
+    @Test
+    void turtleCanWriteWhileFacingNorthTest(){
+        turtle.movePenDown();
+        turtle.turnRight();
+        SketchPad paper = new SketchPad(20, 20);
+        int counter = 0;
+        int numberOfSteps = 5;
+        turtle.writeOn(paper, numberOfSteps);
+        int[][] floor = paper.getFloor();
+        while(counter<numberOfSteps){
+            assertEquals(1, floor[counter][0]);
+            counter++;
+        }
+        assertEquals(new Position(4, 0), turtle.getCurrentPosition());
+
+        turtle.turnRight();
+        turtle.movePenDown();
+        turtle.turnRight();
+        turtle.writeOn(paper, numberOfSteps);
+        counter = 0;
+        while(counter<numberOfSteps){
+            assertEquals(1, floor[counter][0]);
+            counter++;
+        }
+        assertEquals(new Position(0, 0), turtle.getCurrentPosition());
+
     }
 
 }

@@ -73,24 +73,25 @@ public class Turtle {
     public void writeOn(SketchPad sketchPad, int numberOfSteps) {
         if(!isPenUp()){
             int counter = 0;
-            switch (currentDirection){
-                case EAST, WEST:
-                    while(counter<numberOfSteps){
-                        sketchPad.getFloor()[currentPosition.getRowPosition()][currentPosition.getColumnPosition()+counter] = 1;
+            switch (currentDirection) {
+                case EAST, WEST -> {
+                    while (counter < numberOfSteps) {
+                        sketchPad.getFloor()[currentPosition.getRowPosition()][currentPosition.getColumnPosition() + counter] = 1;
                         counter++;
                     }
-                    break;
-                case SOUTH:
+                    moveForwardBy(numberOfSteps);
+                }
+                case SOUTH,NORTH -> {
                     int rowPosition = currentPosition.getRowPosition();
                     int columnPosition = currentPosition.getColumnPosition();
-                    while(counter<numberOfSteps){
-                        sketchPad.getFloor()[rowPosition+counter][columnPosition] = 1;
+                    while (counter < numberOfSteps) {
+                        sketchPad.getFloor()[rowPosition + counter][columnPosition] = 1;
                         counter++;
                     }
+                    moveForwardBy(numberOfSteps);
+                }
             }
-
         }
-        moveForwardBy(numberOfSteps);
     }
 }
 
