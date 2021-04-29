@@ -1,2 +1,5 @@
-package TicTacToe;public enum PlayerCharacter {
+package TicTacToe;
+
+public enum PlayerCharacter {
+    X,O
 }
