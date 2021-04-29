@@ -17,8 +17,11 @@ public class Date {
         this(day,month,0);
     }
     public Date(int day, int month, int year){
+        validatingDay(day);
         this.day = day;
+        validatingMonth(month);
         this.month = month;
+        validatingYear(year);
         this.year = year;
     }
     public void setDate(int day, int month, int year) {
@@ -32,15 +35,15 @@ public class Date {
         validatingMonth(month);
         validatingYear(year);
     }
-    private void validatingDay(int day){
+    private static void validatingDay(int day){
         boolean validateDay = day > 0 && day <= 31;
         if(!validateDay)throw new IllegalArgumentException("Pls enter a valid day");
     }
-    private void validatingMonth(int month){
+    private static void validatingMonth(int month){
         boolean validateMonth = month > 0 && month <= 12;
         if(!validateMonth) throw new IllegalArgumentException("Pls enter a valid month");
     }
-    private void validatingYear(int year){
+    private static void validatingYear(int year){
         boolean validateYear = year >= 2021 && year <= 2023;
         if(!validateYear) throw new IllegalArgumentException("Pls enter a valid year");
     }
