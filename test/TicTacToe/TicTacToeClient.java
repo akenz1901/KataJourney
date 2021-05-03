@@ -16,7 +16,7 @@ public class TicTacToeClient {
     @BeforeEach
     void performAllThis(){
         player = new Player("Mercy");
-        table = new Table(10,10);
+        table = new Table(3,3);
         ticTacToe = new TicTacToe(table, player);
     }
 
@@ -32,7 +32,6 @@ public class TicTacToeClient {
     @Test
     void playerCanplayGame(){
         Table table = new Table(3, 3);
-        Player player = new Player("Mercy");
         ticTacToe.ChooseCharacter(PlayerCharacter.X);
 
         player.play(1,1, PlayerCharacter.X, table);
@@ -47,18 +46,23 @@ public class TicTacToeClient {
     @Test
     void playerCanPlayWhileChoosingCharacter(){
         Table table = new Table(3, 3);
-        Player player = new Player("Mercy");
         ticTacToe.ChooseCharacter(PlayerCharacter.O);
 
-        ticTacToe.playGame(1,2, PlayerCharacter.O, table);
+        player.play(1,2, PlayerCharacter.O, table);
         assertEquals(PlayerCharacter.O, ticTacToe.getCharacter());
 
         String[][] space = table.getOccupiedSpaces();
         for(int counter = 0;counter<1;) {
-            assertEquals("O", table.getOccupiedSpaces()[1][2]);
+            assertEquals("O", space[1][2]);
             System.out.print(Arrays.deepToString(table.getOccupiedSpaces()));
             counter++;
         }
     }
+    @Test
+    void ticTacToe_canTakeTurn(){
+        Player play = new Player("Me");
+        ticTacToe.playerTurn(play, PlayerCharacter.X);
 
+        assertEquals(play, ticTacToe.getTurn());
+    }
 }

@@ -2,7 +2,8 @@ package TicTacToe;
 public class TicTacToe {
 
     private PlayerCharacter character;
-    Table table;
+    private Player player;
+
 
     public TicTacToe(Table table, Player player) {
     }
@@ -37,6 +38,16 @@ public class TicTacToe {
             }
         }
 
+    }
+
+    public void playerTurn(Player name, PlayerCharacter character) {
+        player = name;
+
+
+    }
+
+    public Player getTurn() {
+        return player;
     }
 }
 

@@ -10,15 +10,5 @@ public class Table {
         return playerFilling;
     }
 
-    public static void main(String[] args) {
-        Table table = new Table(3, 3);
-        TicTacToe ticTacToe = new TicTacToe();
-        ticTacToe.playGame(1, 2, PlayerCharacter.O, table);
-        System.out.println(Arrays.deepToString(table.getOccupiedSpaces()));
-//        for (int count = 0; count < 1 ; ) {
-//            String space = table.getOccupiedSpaces()[1][2];
-//                System.out.println(space);
-//                ++count;
-//        }
     }
-}
+

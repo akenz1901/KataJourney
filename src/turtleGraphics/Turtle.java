@@ -48,7 +48,7 @@ public class Turtle {
         currentDirection = newDirection;
     }
 
-    public void moveForwardBy(int numberOfSteps) {
+    private void moveForwardBy(int numberOfSteps) {
         numberOfSteps = numberOfSteps-1;
         switch (currentDirection){
             case EAST -> currentPosition.increaseColumnPositionBy(numberOfSteps);
