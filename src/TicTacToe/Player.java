@@ -7,9 +7,9 @@ public class Player {
         this.playerName = playerName;
     }
 
-    public void play(int row, int column,PlayerCharacter playerCharacter) {
+    public void play(int row, int column,PlayerCharacter playerCharacter, Table table) {
         TicTacToe ticTacToe = new TicTacToe();
-        ticTacToe.playGame(row, column, playerCharacter);
+        ticTacToe.playGame(row, column, playerCharacter, table);
     }
 
     public String getPlayerName(){
