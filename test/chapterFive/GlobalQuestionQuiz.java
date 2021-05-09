@@ -3,6 +3,8 @@ package chapterFive;
 import chapterFour.Questions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GlobalQuestionQuiz {
@@ -56,5 +58,21 @@ public class GlobalQuestionQuiz {
 
         assertEquals("B", questions.getAnswerOption());
         assertEquals(2, questions.getScore());
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Questions question = new Questions();
+        String ans;
+
+        for(int countQuestion = 1 ; countQuestion <= 5; ) {
+            System.out.println(question.displayQuestion(countQuestion));
+            System.out.println("Select Option: ");
+            ans = sc.next();
+            question.selectOption(ans);
+            System.out.println(question.getAnswerOption());
+            countQuestion++;
+        }
+        System.out.println(question.getScore());
     }
 }

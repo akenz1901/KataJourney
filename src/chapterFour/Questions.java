@@ -71,31 +71,31 @@ public class Questions {
     public void selectOption(String answerOption) {
         switch (questionNumber) {
             case 1:
-                if (answerOption == "A" || answerOption == "a") {
+                if (answerOption.equals("A") || answerOption.equals("a")) {
                     score++;
                     this.answerOption = answerOption;
                 }
                     break;
             case 2:
-                if (answerOption == "B" || answerOption == "b") {
+                if (answerOption.equals("B") || answerOption.equals("b")) {
                     score++;
                     this.answerOption = answerOption;
                 }
                 break;
             case 3:
-                if (answerOption == "C" || answerOption == "c") {
+                if (answerOption.equals("C") || answerOption.equals("c")) {
                     score++;
                     this.answerOption = answerOption;
                 }
                 break;
             case 4:
-                if (answerOption == "D" || answerOption == "d") {
+                if (answerOption.equals("D") || answerOption.equals("d")) {
                     score++;
                     this.answerOption = answerOption;
                 }
                 break;
             case 5:
-                if (answerOption == "a" || answerOption == "A") {
+                if (answerOption.equals("a") || answerOption.equals("A")) {
                     score++;
                     this.answerOption = answerOption;
                 }
