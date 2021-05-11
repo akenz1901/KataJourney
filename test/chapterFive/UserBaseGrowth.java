@@ -8,7 +8,7 @@ public class UserBaseGrowth {
         int numOfMonth = 1;
         double baseGrowth;
 
-            baseGrowth = currentNumberOfUser * Math.pow(1.0 + interestRate, numOfMonth);
+            baseGrowth = currentNumberOfUser * (1.0 + interestRate * numOfMonth) -1;
 
 
 
