@@ -11,6 +11,9 @@ public class GuessNumberClient {
     }
 
     public static void main(String[] args) {
-        System.out.println(GuessingGame.getNumber());
+        GuessingGame game = new GuessingGame();
+//        System.out.println(game.getNumber());
+
+        System.out.println(game.getSpecificNumberOfCount());
     }
 }
