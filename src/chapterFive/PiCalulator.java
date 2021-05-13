@@ -11,13 +11,15 @@ public class PiCalulator {
             if(count == 1) {
                 pii = 4;
             }
-            else if(count == 2){
+            else if(count % 2 == 0){
                 pii = pii - (double) 4 / (count + (count - 1));
             }
             else{
                 pii = pii + (double) 4 / (count + (count - 1));
             }
-            System.out.printf("%d %20.2f%n", count, pii);
+            if(pii >= 3.141598 && pii <= 3.14160) {
+                System.out.printf("%d %20f%n", count, pii);
+            }
         }
     }
 }
