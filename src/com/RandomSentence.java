@@ -7,10 +7,8 @@ public class RandomSentence {
 
     public static String getRandomSentence(){
         SecureRandom random = new SecureRandom();
-        String[] articles = { "the", "a", "one", "some","any"};
-        String[] noun = { "boy", "girl", "dog", "town", "car"};
-        String[] verb = {"drove", "jumped", "ran", "walked", "skipped"};
-        String[] preposition = { "to", "from", "over", "under", "on"};
+        String[] articles = { "the", "a", "one", "some","any"}, noun = { "boy", "girl", "dog", "town", "car"};
+        String[] verb = {"drove", "jumped", "ran", "walked", "skipped"} , preposition = { "to", "from", "over", "under", "on"};
 
         for (int counter = 0; counter < 20; counter++){
             System.out.print(counter+1 + " ");
