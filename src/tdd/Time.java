@@ -16,7 +16,10 @@ public class Time {
         validateHour(hour);
         validateMinute(minute);
         validateSecond(second);
-
+    }
+    public void setHour(int hour){
+        validateHour(hour);
+        this.hour = hour;
     }
     private void validateHour(int hour){
         boolean hourISValid = hour >0 && hour <=24;
