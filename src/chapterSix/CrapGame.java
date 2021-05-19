@@ -14,7 +14,7 @@ public class CrapGame {
     private double wager;
     private final SecureRandom randomNumber = new SecureRandom();
 
-    int counter;
+    int counter = randomNumber.nextInt(5);
 
     Scanner sc = new Scanner(System.in);
     private double bankBalance;
@@ -54,15 +54,23 @@ public class CrapGame {
                         System.out.println("You won the game!!!\nYour balance is " + newBalance);
                     }
                     else
-                        System.out.println(counter);
+                        System.out.println(chatterMessages());
                 }
 
 
     }
     private String chatterMessages(){
         if(counter == 1){
-            return "";
+            return "Oh you're going for broke, huh?";
         }
+        else if (counter == 2){
+            return "Aw c'mon, take a chance!";
+        }
+        else if (counter == 3){
+            return "You're up big. Now's the time";
+        }
+        else
+            return "to cash in your chips!";
     }
 
     private int rollOfDice() {
