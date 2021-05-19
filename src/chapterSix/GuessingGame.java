@@ -46,7 +46,7 @@ public class GuessingGame {
         return "Congrats once more \nThe initial number is " + randomNumber;
     }
 
-    public String getSpecificNumberOfCount(){
+    public String   getSpecificNumberOfCount(){
         int randomNumber = random.nextInt(1000);
         int counter = 0;
         while(number != randomNumber){
