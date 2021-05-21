@@ -5,12 +5,6 @@ import java.util.Scanner;
 
 public class CrapGame {
 
-    private final int SEVEN = 7;
-    private final int YO_SEVEN = 11;
-    private final int SNAKE_EYES = 2;
-    private final int TREY = 3;
-    private final int BOX_CARS = 12;
-    private Status gameStatus;
     private double wager;
     private final SecureRandom randomNumber = new SecureRandom();
 
@@ -18,40 +12,41 @@ public class CrapGame {
 
     Scanner sc = new Scanner(System.in);
     private double bankBalance;
-    private double newBalance;
 
     public CrapGame(){
         bankBalance = 1000;
     }
 
     public void gameSetting(int guess){
+        final int SEVEN = 7;
+        final int YO_SEVEN = 11;
+        final int SNAKE_EYES = 2;
+        final int TREY = 3;
+        final int BOX_CARS = 12;
+        Status gameStatus;
 
-            switch (guess) {
-                case SEVEN:
-                case YO_SEVEN:
-                    gameStatus = Status.WON;
-                    newBalance = bankBalance * wager;
-                    System.out.println("You won!! \nYour balance is " + newBalance);
-                    break;
-                case SNAKE_EYES:
-                case TREY:
-                case BOX_CARS:
-                    newBalance = bankBalance -= wager;
-                    gameStatus = Status.TRY_AGAIN;
-                    break;
-
-                default:
-                    newBalance = bankBalance -= wager;
-                    gameStatus = Status.LOSE;
-                    System.out.println("Oh Sorry You busted!!!\nYour balance is " + newBalance);
-                    break;
+         switch (guess) {
+            case SEVEN, YO_SEVEN -> {
+                gameStatus = Status.WON;
+                bankBalance *= wager;
+                System.out.println("You won!! \nYour balance is " + bankBalance);
+            }
+            case SNAKE_EYES, TREY, BOX_CARS -> {
+                bankBalance -= wager;
+                gameStatus = Status.TRY_AGAIN;
+            }
+            default -> {
+                bankBalance -= wager;
+                gameStatus = Status.LOSE;
+                System.out.println("Oh Sorry You busted!!!\nYour balance is " + bankBalance);
+            }
         }
                 while(gameStatus.equals(Status.TRY_AGAIN)){
 
                     if(guess == rollOfDice()){
                         gameStatus = Status.WON;
-                         newBalance = bankBalance + wager;
-                        System.out.println("You won the game!!!\nYour balance is " + newBalance);
+                         bankBalance += wager;
+                        System.out.println("You won the game!!!\nYour balance is " + bankBalance);
                     }
                     else
                         System.out.println(chatterMessages());
