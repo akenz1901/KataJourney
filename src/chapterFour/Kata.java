@@ -1,9 +1,11 @@
 package chapterFour;
 
+import java.security.SecureRandom;
 import java.util.Scanner;
 
 
 public class Kata {
+
     enum GRADE {PASSED, FAILED, BEG_TO_PASS,INVALID}
     Scanner collector = new Scanner(System.in);
 
@@ -99,8 +101,33 @@ public class Kata {
         int quotient = firstNumber/secondNumber;
         return quotient * 1.0 + " is the quotient of" + firstNumber + " and " + secondNumber;
 
-
     }
-
+    public int[] shuffleArray(int... container){
+        SecureRandom generalRandom = new SecureRandom();
+        int number;
+        int secondHolder;
+        int random = generalRandom.nextInt(container.length);
+        for (int i = 0; i < container.length ; i++) {
+            number = container[i];
+            secondHolder = container[i];
+            container[i] = container[random];
+            container[random] = number;
+            container[random] = secondHolder;
+        }
+        return container;
+    }
+    public int[] sortArray(int... number){
+        int counter = 1;
+        int[] num = new int[number.length];
+        for (int j = 0; j < counter; j++) {
+        for (int i = number.length-1; i >= 0; i--) {
+                int container = number[i];
+                if(container > number[i++] )
+                num[j] = number[i];
+                j++;
+            }
+        }
+        return num;
+    }
 
 }
