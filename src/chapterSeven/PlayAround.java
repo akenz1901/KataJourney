@@ -16,5 +16,11 @@ public class PlayAround {
             }
             System.out.println();
         }
+
+        int [] daddy = new int[5];
+        for (int i = 0; i < daddy.length; i++) {
+
+            System.out.println(daddy[0]++);
+        }
     }
 }
