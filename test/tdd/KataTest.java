@@ -144,7 +144,7 @@ public class KataTest {
         Kata sort = new Kata();
         int[] numbers = {3, 4, 5, 2, 1, 6};
         assertEquals(6, numbers.length);
-        System.out.println(Arrays.toString(sort.sortArray(numbers)));
+        System.out.println(Arrays.toString(sort.reverseArray(numbers)));
     }
 
 }
