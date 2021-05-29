@@ -140,11 +140,15 @@ public class KataTest {
         System.out.println(Arrays.toString(shuffler.shuffleArray(numbers)));
     }
     @Test
-    void arrayCanBeSorted(){
-        Kata sort = new Kata();
-        int[] numbers = {3, 4, 5, 2, 1, 6};
+    void arrayCanBeReversed(){
+        Kata reversegit  = new Kata();
+        int[] numbers = {1, 2, 3, 4, 5, 6};
         assertEquals(6, numbers.length);
-        System.out.println(Arrays.toString(sort.reverseArray(numbers)));
+        System.out.println(Arrays.toString(reverse.reverseArray(numbers)));
+    }
+    @Test
+    void arraySortingTest(){
+
     }
 
 }

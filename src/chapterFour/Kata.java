@@ -1,12 +1,14 @@
 package chapterFour;
 
 import java.security.SecureRandom;
+import java.util.Collections;
 import java.util.Scanner;
 
 
 public class Kata {
 
-    enum GRADE {PASSED, FAILED, BEG_TO_PASS,INVALID}
+    enum GRADE {PASSED, FAILED, BEG_TO_PASS, INVALID}
+
     Scanner collector = new Scanner(System.in);
 
     public double calculateAverage() {
@@ -42,19 +44,20 @@ public class Kata {
     public boolean isPrime(int number) {
         int numberCounter = 2;
         while (numberCounter < number) {
-            if(number % numberCounter == 0){
+            if (number % numberCounter == 0) {
                 return false;
             }
             numberCounter++;
         }
         return true;
     }
-    public static double copiesPrice(){
+
+    public static double copiesPrice() {
         Scanner collector = new Scanner(System.in);
         int userInput;
         String newPriceList = """
                 How Many Copies do you want to buy?
-                
+                                
                 Select 1 for 1-4 Copies Price
                 Select 2 for 5-9 copies Price
                 select 3 for 10-29 copies Price
@@ -77,37 +80,40 @@ public class Kata {
         }
         return userInput;
     }
-    public boolean checkTheFactorsOfANumber(){
+
+    public boolean checkTheFactorsOfANumber() {
         System.out.print("Enter a number: ");
         int number = collector.nextInt();
         int factorNumber = 2;
-        while(factorNumber<number){
-            if(number % factorNumber == 0 ) {
+        while (factorNumber < number) {
+            if (number % factorNumber == 0) {
                 System.out.println("The Number Of factor are " + factorNumber);
             }
             factorNumber++;
         }
-        if(number % factorNumber != 0 )
+        if (number % factorNumber != 0)
             System.out.println("The Number Of factor are " + factorNumber);
         return false;
     }
-    public String arithmeticNumbers(int firstNumber, int secondNumber){
+
+    public String arithmeticNumbers(int firstNumber, int secondNumber) {
         int sum = firstNumber + secondNumber;
-        System.out.println(sum+ " is the sum of " + firstNumber + " and " + secondNumber);
+        System.out.println(sum + " is the sum of " + firstNumber + " and " + secondNumber);
         int subtraction = firstNumber - secondNumber;
-        System.out.println(subtraction+ " is the subtraction of " + firstNumber + " and " + secondNumber);
+        System.out.println(subtraction + " is the subtraction of " + firstNumber + " and " + secondNumber);
         int difference = firstNumber * secondNumber;
-        System.out.println(difference+ " is the difference between " + firstNumber + " and " + secondNumber);
-        int quotient = firstNumber/secondNumber;
+        System.out.println(difference + " is the difference between " + firstNumber + " and " + secondNumber);
+        int quotient = firstNumber / secondNumber;
         return quotient * 1.0 + " is the quotient of" + firstNumber + " and " + secondNumber;
 
     }
-    public int[] shuffleArray(int... container){
+
+    public int[] shuffleArray(int... container) {
         SecureRandom generalRandom = new SecureRandom();
         int number;
         int secondHolder;
         int random = generalRandom.nextInt(container.length);
-        for (int i = 0; i < container.length ; i++) {
+        for (int i = 0; i < container.length; i++) {
             number = container[i];
             secondHolder = container[i];
             container[i] = container[random];
@@ -116,18 +122,28 @@ public class Kata {
         }
         return container;
     }
-    public int[] sortArray(int... number){
-        int counter = 1;
-        int[] num = new int[number.length];
-        for (int j = 0; j < counter; j++) {
-        for (int i = number.length-1; i >= 0; i--) {
-                int container = number[i];
-                if(container > number[i++] )
-                num[j] = number[i];
-                j++;
-            }
-        }
-        return num;
-    }
 
+    public int[] reverseArray(int... number) {
+        int counter = 0;
+        int[] num = new int[number.length];
+            for (int i = number.length-1; i >= 0; i--) {
+                num[counter] = number[i];
+                System.out.println(number[i]);
+                counter++;
+                }
+            return num;
+    }
+    public int [] sortArray(int... number){
+        for (int i = 0; i < number.length; i++){
+            for (int j = 0; j < number.length; ) {
+                if (number[j] > number[j+1]){
+                    number[i] = number[j];
+                    j++;
+                }
+            }
+
+        }
+        return number;
+
+    }
 }
