@@ -135,15 +135,16 @@ public class Kata {
     }
     public int [] sortArray(int... number){
         for (int i = 0; i < number.length; i++){
-            for (int j = 0; j < number.length; ) {
-                if (number[j] > number[j+1]){
-                    number[i] = number[j];
-                    j++;
+            for (int j = 1; j < number.length-1; j++) {
+                if (number[i] > number[j]){
+                    number[j] = number[i];
+                    break;
                 }
             }
-
         }
         return number;
-
+    }
+    public boolean isItEven(int number){
+        return number % 2 == 0;
     }
 }

@@ -10,9 +10,8 @@ public class Craps {
     public int rollDice(){
         int firstDie = 1 + randomGenerator.nextInt(6);
         int secondDie = 1 + randomGenerator.nextInt(6);
-        int sum = firstDie + secondDie;
 
-        return sum;
+        return firstDie + secondDie;
     }
     public void play(){
        int result = rollDice();

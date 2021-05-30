@@ -15,6 +15,5 @@ class CardGamePlayingTest {
     void gameIsInitializedWithNumberOfPlayerCanBeCreated(){
         CardGamePlaying cardGame = new CardGamePlaying (2, 5);
         assertEquals ( 2,cardGame.getNumberOfPlayers ());
-
     }
 }

@@ -1,31 +1,62 @@
 package cardGame;
 
-import cardGame.Exceptions.InvalidCardValueException;
+import static cardGame.Suit.*;
 
 public class CardGame{
     private final int value;
     private final Suit suit;
 
-    public CardGame(Suit suit, int value) {
-        if (value < 1 || value > 13){
-            throw new InvalidCardValueException(value + " Is Not a Valid Card Value");
-        }
+    private CardGame(Suit suit, int value) {
         this.value = value;
         this.suit = suit;
     }
 
-    public Suit getSuit() {
+    public static CardGame createSquareCardOfValue(int value) {
+        return new CardGame(SQUARE, value);
+    }
+
+    public static CardGame createTriangleCardOfValue(int value) {
+        return new CardGame(TRIANGLE, value);
+    }
+
+    public static CardGame createStarCardOfValue(int value) {
+        return new CardGame(STAR, value);
+    }
+
+    public static CardGame createCircleCardOfValue(int value) {
+        return new CardGame(CIRCLE, value);
+    }
+
+    public static CardGame createCrossCardOfValue(int value) {
+        return new CardGame(CROSS, value);
+    }
+
+    public static CardGame createWhotCardOfValue(int whotValue) {
+        return new CardGame(WHOT, whotValue);
+    }  public Suit getSuit() {
         return suit;
     }
 
-    public String getValue() {
+    public int getValue() {
 
-        return switch (this.value) {
-            case 1 -> "Ace";
-            case 11 -> "Jack";
-            case 12 -> "Queen";
-            case 13 -> "King";
-            default -> ""+value;
-        };
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return getValue() + " of " + suit.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!this.getClass().equals(obj.getClass())){
+            return false;
+        }
+        CardGame cardToCompare = (CardGame) obj;
+        return this.value == cardToCompare.value || this.suit == cardToCompare.suit;
     }
 }
+
+// if (value < 1 || value > 14){
+//        throw new InvalidCardValueException(value + " Is Not a Valid Card Value");
+//        }

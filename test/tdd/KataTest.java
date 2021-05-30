@@ -141,14 +141,17 @@ public class KataTest {
     }
     @Test
     void arrayCanBeReversed(){
-        Kata reversegit  = new Kata();
+        Kata reverse = new Kata();
         int[] numbers = {1, 2, 3, 4, 5, 6};
         assertEquals(6, numbers.length);
         System.out.println(Arrays.toString(reverse.reverseArray(numbers)));
     }
     @Test
     void arraySortingTest(){
-
+        Kata sort = new Kata();
+        int[] numbers = {2, 1, 5, 3, 4, 6};
+        sort.sortArray(numbers);
+        System.out.println(Arrays.toString(sort.reverseArray(numbers)));
     }
 
 }

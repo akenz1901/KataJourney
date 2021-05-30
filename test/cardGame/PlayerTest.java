@@ -14,9 +14,9 @@ class PlayerTest {
     @Test
     void playerHasCards(){
         Player player = new Player ("Michael");
-        player.addCard(new CardGame ( DIAMOND,4 ));
-        player.addCard(new CardGame ( SPADE,2 ));
-        player.addCard(new CardGame ( CLUB,5));
+        player.addCard(CardGame.createWhotCardOfValue(2));
+        player.addCard(CardGame.createWhotCardOfValue(2));
+        player.addCard(CardGame.createWhotCardOfValue(2));
 
 
         assertEquals ( 3, player.getNumberOfCards() );
