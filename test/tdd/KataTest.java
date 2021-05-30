@@ -149,9 +149,15 @@ public class KataTest {
     @Test
     void arraySortingTest(){
         Kata sort = new Kata();
-        int[] numbers = {2, 1, 5, 3, 4, 6};
-        sort.sortArray(numbers);
-        System.out.println(Arrays.toString(sort.reverseArray(numbers)));
+        int[] numbers = {2, 5, 4, 3, 1, 6};
+        sort.sortArrayDesc(numbers);
+        System.out.print(Arrays.toString(numbers));
+        assertArrayEquals(new int[]{6, 5, 4, 3, 2, 1}, numbers);
+    }
+    @Test
+    void evenNumberCanBeTested(){
+        Kata isEvenNumber = new Kata();
+        assertFalse(isEvenNumber.isEven(87));
     }
 
 }

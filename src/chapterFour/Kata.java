@@ -133,16 +133,28 @@ public class Kata {
                 }
             return num;
     }
-    public int [] sortArray(int... number){
-        for (int i = 0; i < number.length; i++){
-            for (int j = 1; j < number.length-1; j++) {
-                if (number[i] > number[j]){
+    public void sortArrayDesc(int... number) {
+        for (int i = 0; i < number.length; i++) {
+            for (int j = 1; j < number.length; j++) {
+                int numb;
+                if (number[i] > number[j]) {
+                    numb = number[j];
                     number[j] = number[i];
-                    break;
+                    number[i] = numb;
+                }
+                if (j == number.length - 1) {
+                    int inCounter = 0;
+                    for (int k = 1; k < number.length; k++) {
+                        if (number[inCounter] < number[k]) {
+                            numb = number[k];
+                            number[k] = number[inCounter];
+                            number[inCounter] = numb;
+                        }
+                        inCounter++;
+                    }
                 }
             }
         }
-        return number;
     }
     public boolean isItEven(int number){
         return number % 2 == 0;
