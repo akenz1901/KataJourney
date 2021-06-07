@@ -126,13 +126,14 @@ public class Kata {
     public int[] reverseArray(int... number) {
         int counter = 0;
         int[] num = new int[number.length];
-            for (int i = number.length-1; i >= 0; i--) {
-                num[counter] = number[i];
-                System.out.println(number[i]);
-                counter++;
-                }
-            return num;
+        for (int i = number.length - 1; i >= 0; i--) {
+            num[counter] = number[i];
+            System.out.println(number[i]);
+            counter++;
+        }
+        return num;
     }
+
     public void sortArrayDesc(int... number) {
         for (int i = 0; i < number.length; i++) {
             for (int j = 1; j < number.length; j++) {
@@ -156,7 +157,17 @@ public class Kata {
             }
         }
     }
-    public boolean isItEven(int number){
+
+    public boolean isItEven(int number) {
         return number % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(i - j);
+                System.out.println();
+            }
+        }
     }
 }
