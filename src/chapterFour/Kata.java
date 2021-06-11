@@ -1,7 +1,6 @@
 package chapterFour;
 
 import java.security.SecureRandom;
-import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -162,12 +161,4 @@ public class Kata {
         return number % 2 == 0;
     }
 
-    public static void main(String[] args) {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j <= i; j++) {
-                System.out.print(i - j);
-                System.out.println();
-            }
-        }
-    }
 }

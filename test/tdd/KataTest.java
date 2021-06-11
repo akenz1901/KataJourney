@@ -159,5 +159,71 @@ public class KataTest {
         Kata isEvenNumber = new Kata();
         assertFalse(isEvenNumber.isEven(87));
     }
-
+    public static void main(String[] args) throws InterruptedException {
+        char[][] ticItTacIt = new char[3][3];
+        ticItTacIt[0] = new char[]{'X', 'O', 'X'};
+        ticItTacIt[1] = new char[]{'O', 'O', 'X'};
+        ticItTacIt[2] = new char[]{'O', 'X', 'O'};
+        for (char[] letter: ticItTacIt) {
+            for (char c : letter) {
+                System.out.print(c + " ");
+            }
+            System.out.println();
+            Thread.sleep(1000);
+        }
+//        for (int i = 0; i < 3; i++) {
+//            for (int j = 0; j < ticItTacIt[i].length; j++) {
+//                    ticItTacIt[i][j] = 'X';
+//                switch (j) {
+//                    case 1 -> ticItTacIt[i][j] = 'O';
+//                    case 2 -> ticItTacIt[i][j] = 'X';
+//                }
+//                if(i == 1){
+//                    ticItTacIt[i][j] = 'O';
+//                    switch (j){
+//                        case 1 -> ticItTacIt[i][j] = 'O';
+//                        case 2 -> ticItTacIt[i][j] = 'X';
+//                    }
+//                    System.out.print(ticItTacIt[i][j]);
+//                }
+//                else if(i == 2){
+//                    ticItTacIt[i][j] = 'O';
+//                    switch (j){
+//                        case 1 -> ticItTacIt[i][j] = 'X';
+//                        case 2 -> ticItTacIt[i][j] = 'O';
+//                    }
+//                }
+//            }
+//        }
+//        for (int i = 0; i < 4; i++) {
+//            for (int j = 0; j <= i; j++) {
+//                System.out.print(i - j);
+//                System.out.println();
+//            }
+//        }
+    }
+    @Test
+    void testTheSevenSegment(){
+        char[][] sevenOnAndOf = {{'#','#','#','#'}, {'#',0,0,'#'}, {'#','#','#','#'}, {'#',0,0,'#'}, {'#','#','#','#'}};
+        for (char []numbers:sevenOnAndOf) {
+            System.out.println();
+            for (char digit: numbers) {
+                System.out.print(digit + " ");
+            }
+        }
+    }
+    @Test
+    void testTheSevenSegmentAgain() throws InterruptedException {
+        int [][] sevenSegment = {{1,1,1,1}, {1,0,0,1}, {1,1,1,1}, {1,0,0,1}, {1,1,1,1}};
+        for (int[] digits :sevenSegment) {
+            System.out.println();
+            for (int singleDigit:digits) {
+                switch (singleDigit) {
+                    case 1 -> System.out.print("# ");
+                    case 0 -> System.out.print("  ");
+                }
+            }
+            Thread.sleep(1000);
+        }
+    }
 }
