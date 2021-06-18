@@ -44,7 +44,7 @@ public class Date {
         if(!validateMonth) throw new IllegalArgumentException("Pls enter a valid month");
     }
     private static void validatingYear(int year){
-        boolean validateYear = year >= 2021 && year <= 2023;
+        boolean validateYear = year >= 1800 && year <= 2023;
         if(!validateYear) throw new IllegalArgumentException("Pls enter a valid year");
     }
     public int getDay() {
@@ -56,4 +56,9 @@ public class Date {
     }
 
     public int getYear() { return year;}
+
+    @Override
+    public String toString() {
+        return String.format("2%d 2%d %d", day, month, year);
+    }
 }
