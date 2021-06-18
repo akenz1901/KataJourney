@@ -1,5 +1,7 @@
 package chapterFour;
 
+import java.util.Arrays;
+
 public class Factorials {
 
     void factorialNumbers(int number){
