@@ -5,6 +5,8 @@ public class Main {
         Animal aja = new Dog();
         Object ruby = new Dog();
         Animal cat = new Cat();
+        Animal eranko = new Animal();
+
 
         ruby = new Dog();
         ruby = 1;
@@ -13,5 +15,7 @@ public class Main {
 
         ruby = new Cat();
         aja.move();
+        cat.move();
+        eranko.move();
     }
 }
