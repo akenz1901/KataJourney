@@ -1,6 +1,4 @@
-package chapterEight;
-
-import java.util.Arrays;
+package chapterNine;
 
 public class Bus extends Vehicle{
 }
