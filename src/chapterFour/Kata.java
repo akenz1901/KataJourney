@@ -1,10 +1,21 @@
 package chapterFour;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class Kata {
+
+    public static void fillArray(int... digits) {
+        Arrays.fill(digits, 6);
+    }
+
+    public static void copyArray(int[] digits, int... emptyArray) {
+
+        System.arraycopy(digits,0, emptyArray, 0, digits.length);
+    }
 
     enum GRADE {PASSED, FAILED, BEG_TO_PASS, INVALID}
 
@@ -159,6 +170,34 @@ public class Kata {
 
     public boolean isItEven(int number) {
         return number % 2 == 0;
+    }
+    public static void sortArray(int... intDigits){
+
+        Arrays.sort(intDigits);
+    }
+
+    public static void modifyArrayList(){
+        ArrayList<String> healthStore = new ArrayList<>();
+
+        healthStore.add("Cotton Wool");
+        healthStore.add(0, "Injection");
+        healthStore.add("Bed");
+        healthStore.add("Ambulance");
+
+        System.out.println(healthStore.get(1));
+        displayArrayList(healthStore);
+
+        System.out.printf("%s", healthStore.contains("Bed") ? "Yes": "not");
+    }
+    public static void displayArrayList(ArrayList<String> item){
+        for (String things:item) {
+            System.out.println(things);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        modifyArrayList();
     }
 
 }
