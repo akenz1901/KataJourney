@@ -4,7 +4,7 @@ public class Bank {
 
     private int accountID;
     private double balance;
-    private double [] accounts= new double[10];
+    private final double [] accounts= new double[10];
 
     public void createAccountNumber(int accountNumber, double balance) {
 //        for(int counter=1; counter<accounts.length; ) {
@@ -24,9 +24,7 @@ public class Bank {
         balance+=deposit;
     }
 
-    public double getBalance() {
-        return balance;
-    }
+    public double getBalance() { return balance; }
 
     public void withdraw(int withdraw) {
         balance-=withdraw;
