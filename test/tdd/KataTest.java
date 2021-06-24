@@ -226,4 +226,37 @@ public class KataTest {
             Thread.sleep(1000);
         }
     }
+    @Test
+    void arrayCanBeSortedAPIMethod(){
+        int [] cohortsNumbers = {23,4,51,3,4,22,9,0,1,2,3,22,3,4,44,};
+        Kata.sortArray(cohortsNumbers);
+        for (int digit:cohortsNumbers) {
+            System.out.print(digit);
+            System.out.print(",");
+        }
+    }
+    @Test
+    void arrayCanBeFilledAPIMethod(){
+        int [] cohortsNumbers = {23,4,51,3,4,22,9,0,1,2,3,22,3,4,44};
+        Kata.fillArray(cohortsNumbers);
+        for (int digit:cohortsNumbers) {
+            System.out.print("Cohort");
+            System.out.print(digit);
+            System.out.print(" ");
+        }
+    }
+    @Test
+    void arrayCanBeCopied() {
+        int[] cohortsNumbers = {23, 4, 51, 3, 4, 22, 9, 0, 1, 2, 3, 22, 3, 4, 44};
+        int[] copyCart = new int[cohortsNumbers.length];
+        Kata.copyArray(cohortsNumbers, copyCart);
+        System.out.printf("%s%10s%n", "First Array", "CopyCart");
+        for (int i = 0; i < cohortsNumbers.length; ) {
+            System.out.printf("%5d", cohortsNumbers[i]);
+            for (int j = 0; j < i; j++) {
+                System.out.printf("%8d", copyCart[j]);
+            }
+            i++;
+        }
+    }
 }
