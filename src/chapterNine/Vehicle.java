@@ -1,6 +1,6 @@
 package chapterNine;
 
-public class Vehicle {
+public class Vehicle{
     private int wheels;
     private String productName;
     public Vehicle(){
