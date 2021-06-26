@@ -1,12 +1,9 @@
 package chapterNine.studentPrototype;
 
-import java.security.SecureRandom;
-
 public class UnderGraduateStudent extends Student{
 
     private long matricNumber;
 
-    private final String numberSign = "NOU";
     public UnderGraduateStudent(String firstName, String lastName, String programme,
                                 int studentLevel, String schoolName){
         super(firstName, lastName, programme, studentLevel, schoolName);
@@ -20,8 +17,13 @@ public class UnderGraduateStudent extends Student{
     }
 
     @Override
+    public int calculateTotalCourseFee(){
+        int courseFee = 3000;
+        return getTotalCourseUnit() * courseFee;
+    }
+    @Override
     public String toString() {
-
+        String numberSign = "NOU";
         return String.format("%s%nMatric Number-> %s%s", super.toString(), numberSign, matricNumber);
     }
 }
