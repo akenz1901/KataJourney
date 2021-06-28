@@ -19,7 +19,7 @@ public class UnderGraduateStudent extends Student{
     @Override
     public int calculateTotalCourseFee(){
         int courseFee = 3000;
-        return getTotalCourseUnit() * courseFee;
+        return super.getTotalCourseUnit() * courseFee;
     }
     @Override
     public String toString() {
