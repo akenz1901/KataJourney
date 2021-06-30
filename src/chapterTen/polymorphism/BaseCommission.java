@@ -1,4 +1,4 @@
-package chapterTen;
+package chapterTen.polymorphism;
 
 public class BaseCommission extends CommissionEmployee{
 
@@ -26,8 +26,8 @@ public class BaseCommission extends CommissionEmployee{
     }
 
     @Override
-    public double earnings() {
-        return super.earnings() + getBaseSalary();
+    public double getPaymentAmount() {
+        return super.getPaymentAmount() + getBaseSalary();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package chapterTen;
+package chapterTen.polymorphism;
 
 public class HourlyPaidEmployee extends Employee{
 
@@ -38,7 +38,7 @@ public class HourlyPaidEmployee extends Employee{
     }
 
     @Override
-    public double earnings() {
+    public double getPaymentAmount() {
         if (getHourlyPay() <= 40)
             return getHourlyPay() * getWage();
         else

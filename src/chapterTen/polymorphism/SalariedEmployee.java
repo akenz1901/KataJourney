@@ -1,4 +1,4 @@
-package chapterTen;
+package chapterTen.polymorphism;
 
 public class SalariedEmployee extends Employee{
 
@@ -30,7 +30,7 @@ public class SalariedEmployee extends Employee{
     }
 
     @Override
-    public double earnings() {
+    public double getPaymentAmount() {
         return getWeeklySalary();
     }
 }
