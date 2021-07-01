@@ -1,5 +1,6 @@
 package chapterTen;
 
+import chapterTen.polymorphism.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class PayRollSystem {
         for (Employee employee: employees) {
             System.out.println(employee);
 
-            System.out.println(employee.earnings());
+            System.out.println(employee.getPaymentAmount());
 
             if (employee instanceof BaseCommission baseCommissionEmployee){
 

@@ -1,2 +1,5 @@
-package chapterTen.Interfaces;public interface Payable {
+package chapterTen.Interfaces;
+
+public interface Payable {
+    double getPaymentAmount();
 }
