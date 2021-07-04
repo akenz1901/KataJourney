@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class TestPayable {
 
     @Test
-    void testInterfacePolymorphically(){
+    void testInterfacePolymorphism(){
         Payable [] payableObject = new Payable[4];
 
         payableObject[0] = new Invoice("01234", "seat", 2, 375.00);payableObject[0] = new Invoice("01234", "seat", 2, 375.00);
