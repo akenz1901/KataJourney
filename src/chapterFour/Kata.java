@@ -197,7 +197,35 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        modifyArrayList();
+//        modifyArrayList();
+        man();
     }
 
+    public static int arithmeticProgression(int firstNumber, int secondNumber, int thirdNumber){
+        int firstDifference = thirdNumber - secondNumber;
+        int secondDifference =  secondNumber - firstNumber;
+
+        assert (firstDifference == secondDifference): "Not a sequence of AP";
+
+        if (firstDifference != secondDifference) {
+            return -1;
+        }
+        else
+            return firstDifference;
+    }
+
+    public static void man() {
+        String[] array = {"1,2,4,5", "2,4,6,7"};
+        String first_string = String.format("%s,%s", array[0], array[1]);
+        String[] strArr = first_string.split(",");
+        String outPut = "";
+        int j;
+
+        for (int i = 0; i < strArr.length; i++) {
+            for (j = i+1; j < strArr.length; j++) {
+                if (strArr[i].equalsIgnoreCase(strArr[j]))
+                    outPut = strArr[j];
+            }
+        }
+    }
 }

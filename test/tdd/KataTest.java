@@ -259,4 +259,8 @@ public class KataTest {
             i++;
         }
     }
+    @Test
+    void sequenceOfAPCanBeTested(){
+        assertEquals(2, Kata.arithmeticProgression(1, 3,5));
+    }
 }
