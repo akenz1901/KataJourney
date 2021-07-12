@@ -195,23 +195,14 @@ public class Kata {
         }
     }
 
-    public static void main(String[] args) {
-
-//        modifyArrayList();
-        man();
-    }
-
     public static int arithmeticProgression(int firstNumber, int secondNumber, int thirdNumber){
         int firstDifference = thirdNumber - secondNumber;
         int secondDifference =  secondNumber - firstNumber;
 
         assert (firstDifference == secondDifference): "Not a sequence of AP";
 
-        if (firstDifference != secondDifference) {
-            return -1;
-        }
-        else
             return firstDifference;
+
     }
 
     public static void man() {
@@ -228,4 +219,29 @@ public class Kata {
             }
         }
     }
+    int [] num;
+    private int increment = 0;
+    public void addValue(int number){
+        increment++;
+        num[increment] = number;
+    }
+    public int removeValue(){
+        increment--;
+        return num[increment];
+    }
+    public int getSize(){
+        return num.length;
+    }
+
+    public static void main(String[] args) {
+        Kata k = new Kata();
+        k.addValue(2);
+        System.out.println(k.getSize());
+//        k.removeValue();
+//        System.out.println(k.getSize());
+//        modifyArrayList();
+//        man();
+
+    }
+
 }

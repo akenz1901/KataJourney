@@ -60,7 +60,7 @@ public class CardDeck {
         Collections.shuffle(Arrays.asList(cards));
     }
 
-    public static CardDeck populateCards() {
+    public static void populateCards() {
         CardDeck cardDeck = new CardDeck(54);
         for (Suit suit:Suit.values()) {
             switch (suit) {
@@ -119,7 +119,6 @@ public class CardDeck {
                 }
             }
         }
-        return cardDeck;
     }
 }
 
