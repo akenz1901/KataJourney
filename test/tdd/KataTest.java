@@ -229,7 +229,7 @@ public class KataTest {
     @Test
     void arrayCanBeSortedAPIMethod(){
         int [] cohortsNumbers = {23,4,51,3,4,22,9,0,1,2,3,22,3,4,44,};
-        Kata.sortArray(cohortsNumbers);
+        Kata.sortArrayAsc(cohortsNumbers);
         for (int digit:cohortsNumbers) {
             System.out.print(digit);
             System.out.print(",");
@@ -262,5 +262,28 @@ public class KataTest {
     @Test
     void sequenceOfAPCanBeTested(){
         assertEquals(2, Kata.arithmeticProgression(1, 3,5));
+    }
+    @Test
+    void classA_andBCanBeMergedAndRemainSorted(){
+        int[] A = {13, 15, 19};
+        int[] B = {11, 13, 18};
+        int temp_count = 0;
+        int j = 0;
+        int [] allClasses = new int[6];
+        for (int i = 0; i < allClasses.length; i++) {
+            if(temp_count  <= 2) {
+                allClasses[temp_count] = A[i];
+                temp_count++;
+            }
+            else if(temp_count > 2 && temp_count < allClasses.length) {
+                allClasses[temp_count] = B[j];
+                j++;
+                temp_count++;
+            }
+        }
+
+        Kata.sortArrayAsc(allClasses);
+//        Kata.sortArrayDesc(allClasses);
+        System.out.println(Arrays.toString(allClasses));
     }
 }
