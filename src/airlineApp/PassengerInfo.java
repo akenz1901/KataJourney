@@ -1,4 +1,4 @@
-package tdd;
+package airlineApp;
 
 public class PassengerInfo {
     private String firstName;
@@ -11,9 +11,7 @@ public class PassengerInfo {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    public PassengerInfo(String destination){
-        passengerDestination = destination;
-    }
+
     public PassengerInfo(String firstName, String lastName, String destination){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,13 +19,21 @@ public class PassengerInfo {
         if(isNameValid)
         this.passengerDestination = destination;
     }
-    public String getFullName(){
-        return firstName + " " + lastName;
-    }
+
     public String getDestination(){
         return passengerDestination;
     }
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastName(){return lastName;}
 
-
-
+    @Override
+    public String toString() {
+        return String.format("%s %s", getFirstName(), getLastName());
+    }
 }
+
+//    public PassengerInfo(String destination){
+//        passengerDestination = destination;
+//    }

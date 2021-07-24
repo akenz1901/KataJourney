@@ -3,7 +3,10 @@ package tdd;
 import chapterFour.ClassTypes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import airlineApp.AirlineReservation;
+import airlineApp.ClassNotAvailableException;
 
+import static chapterFour.ClassTypes.BUSINESS;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -17,7 +20,6 @@ public class AirlineReservationTest {
     void availableClassTypeCan_BeConfirmed() {
 
         airlineReservation.isThereSeatAvailableFor(ClassTypes.ECONOMY);
-
         assertEquals(ClassTypes.ECONOMY, airlineReservation.getAvailableClass());
     }
 
@@ -28,6 +30,10 @@ public class AirlineReservationTest {
 
         airlineReservation.isThereSeatAvailableFor(ClassTypes.FIRST_CLASS);
         assertEquals(ClassTypes.FIRST_CLASS, airlineReservation.getAvailableClass());
+    }
+    @Test
+    void availableClassTypeThrowsAnException(){
+        assertThrows(ClassNotAvailableException.class, ()-> airlineReservation.isThereSeatAvailableFor(BUSINESS));
     }
 
     @Test
@@ -43,37 +49,34 @@ public class AirlineReservationTest {
     @Test
     void seatNumberCan_beAssigned() {
         airlineReservation.isSeatAvailableForClassType(7, ClassTypes.ECONOMY);
-        assertTrue( airlineReservation.assignSeat());
+        assertTrue( airlineReservation.confirmSeat());
 
     }
     @Test
     void seatNumbers_cannotBeAssignedOverLimit(){
         airlineReservation.isSeatAvailableForClassType(11, ClassTypes.ECONOMY);
-        assertFalse(airlineReservation.assignSeat());
-    }
-    @Test
-    void passengerCanBeCreated_WithDestination(){
-        airlineReservation.passengerInfo("Hon","Dickson","Spain");
-        assertEquals("Hon Dickson",airlineReservation.getPassenger());
-        assertEquals("Spain", airlineReservation.getDestination());
-    }
-    @Test
-    void destination_cannotBeSetIfPassenger_doesNotBook(){
-        airlineReservation.passengerInfo(null,null,"Spain");
-        assertNotSame("Spain", airlineReservation.getDestination());
+        assertFalse(airlineReservation.confirmSeat());
     }
     @Test
     void passenger_canBeAssignedToSeat(){
         airlineReservation.assignSeatForPassenger(1,"Fowler","Martin",ClassTypes.FIRST_CLASS);
-        assertEquals("Fowler Martin", airlineReservation.getPassenger());
+        assertEquals("Fowler Martin", airlineReservation.getPassengerBySeatNumber(1));
     }
     @Test
     void twoPassengers_cannotBeAssignedToOneSeat(){
         airlineReservation.assignSeatForPassenger(1,"Fowler","Martin",ClassTypes.FIRST_CLASS);
-        assertEquals("Fowler Martin", airlineReservation.getPassenger());
+        assertEquals("Fowler Martin", airlineReservation.getPassengerBySeatNumber(1));
 
         airlineReservation.assignSeatForPassenger(5,"Akenz","Martin",ClassTypes.FIRST_CLASS);
-        assertEquals("Akenz Martin", airlineReservation.getPassenger());
+        assertEquals("Akenz Martin", airlineReservation.getPassengerBySeatNumber(5));
+    }
+    @Test
+    void numberOfPassengerCanBePopulated(){
+        airlineReservation.assignSeatForPassenger(1,"Fowler","Martin",ClassTypes.FIRST_CLASS);
+        airlineReservation.assignSeatForPassenger(5,"Akenz","Akinsanya",ClassTypes.FIRST_CLASS);
+
+        assertEquals(2, airlineReservation.getNumberOfPassengerOnSeat());
+        System.out.printf("%s", airlineReservation.allPassengerOnSeat());
     }
 
 }
