@@ -11,6 +11,6 @@ public class AssertErrorConditionTest {
 
         assert (number >= 0 && number <= 10) : "bad number: " + number;
 
-        System.out.printf("You enter %d%n", number);
+            System.out.printf("You enter %d%n", number);
     }
 }

@@ -1,7 +1,7 @@
 package chapterFour;
 
 public enum ClassTypes {
-    FIRST_CLASS,ECONOMY;
+    FIRST_CLASS,ECONOMY,BUSINESS;
 }
 
 
