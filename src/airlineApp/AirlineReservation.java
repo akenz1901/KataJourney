@@ -4,13 +4,15 @@ package airlineApp;
 import chapterFour.ClassTypes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class AirlineReservation {
 
     private ClassTypes typeOfFlightClass;
     private boolean checkSeatSelection;
     private final boolean[] numberOfSeat = new boolean[10];
-    private final ArrayList <PassengerInfo> passengersOnSeat = new ArrayList<>(10);
+    private final PassengerInfo [] passengersOnSeat = new PassengerInfo[10];
 
     public void isThereSeatAvailableFor(ClassTypes classType) {
         validateConfirmSeat(classType);
@@ -54,10 +56,11 @@ public class AirlineReservation {
         validateConfirmSeat(classType);
         validateSeatNumber(seatNumber);
         PassengerInfo passenger = new PassengerInfo(firstName,lastName);
-        passengersOnSeat.set(seatNumber, passenger);
+        passengersOnSeat[seatNumber] = passenger;
     }
 
-    public String getPassengerBySeatNumber(int seatNumber) {return passengersOnSeat.get(seatNumber-1).toString();}
+    public String getPassengerBySeatNumber(int seatNumber) {
+        return passengersOnSeat[seatNumber].toString();}
 
     public String allPassengerOnSeat() {
 //        int num = 0;
@@ -65,17 +68,17 @@ public class AirlineReservation {
 //            num++;
 //            System.out.printf("%d. %s%n", num, passenger);
 //        }
-        return passengersOnSeat.toString();
+        return Arrays.toString(passengersOnSeat);
     }
     public int getNumberOfPassengerOnSeat(){
-        return passengersOnSeat.size();
+        int numOfPassenger = 0;
+        for (PassengerInfo passengerInfo : passengersOnSeat) {
+            if (passengerInfo != null) {
+                numOfPassenger++;
+            }
+        }
+        return numOfPassenger;
     }
 
-    public void populatePassenger(){
-        
-    }
-    @Override
-    public String toString(){
-        return "";
-    }
+    public String populatePassenger() {return Arrays.toString(passengersOnSeat);}
 }
