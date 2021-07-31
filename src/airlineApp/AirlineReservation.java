@@ -33,33 +33,36 @@ public class AirlineReservation {
             throw new InvalidSeatNumber("Wrong Seat Number we only have limited seat Number");
     }
 
-    public void isSeatAvailableForClassType(int seatNumber, ClassTypes classType) {
+    private void isSeatAvailableForClassType(int seatNumber, ClassTypes classType) {
         validateSeatNumber(seatNumber);
         validateConfirmSeat(classType);
             if (classType.equals(FIRST_CLASS) && seatNumber <= 5) {
                 numberOfSeat[seatNumber-1] = true;
-                if (numberOfSeat[seatNumber-1])
+                isThereSeatAvailableFor(classType);
+                if(numberOfSeat[seatNumber - 1])
                     checkSeatSelection = true;
             }
             else if(classType.equals(ECONOMY) && seatNumber > 5 && seatNumber <= numberOfSeat.length) {
                  numberOfSeat[seatNumber-1] = true;
+                 isThereSeatAvailableFor(classType);
                  if(numberOfSeat[seatNumber-1])
-                   checkSeatSelection = true;
+                    checkSeatSelection = true;
             }
-        }
+            else
+                throw new ClassNotAvailableException("Sorry Error Occurred\n Wrong Seat Assignment");
+    }
     public boolean confirmSeat() {
         return checkSeatSelection;
     }
 
     public void assignSeatForPassenger(int seatNumber, String firstName,String lastName, ClassTypes classType){
-        validateConfirmSeat(classType);
-        validateSeatNumber(seatNumber);
+        isSeatAvailableForClassType(seatNumber, classType);
         PassengerInfo passenger = new PassengerInfo(firstName,lastName);
-        passengersOnSeat[seatNumber] = passenger;
+        passengersOnSeat[seatNumber-1] = passenger;
     }
 
     public String getPassengerBySeatNumber(int seatNumber) {
-        return passengersOnSeat[seatNumber].toString();}
+        return passengersOnSeat[seatNumber-1].toString();}
 
     public String allPassengerOnSeat() {
 
@@ -77,11 +80,13 @@ public class AirlineReservation {
 
     @Override
     public String toString() {
-        return "AirlineReservation{" +
-                "typeOfFlightClass=" + typeOfFlightClass +
-                ", checkSeatSelection=" + checkSeatSelection +
-                ", numberOfSeat=" + Arrays.toString(numberOfSeat) +
-                ", passengersOnSeat=" + Arrays.toString(passengersOnSeat) +
-                '}';
+        PassengerInfo pass = null;
+        int count = 0;
+        for (PassengerInfo passenger:passengersOnSeat){
+            count++;
+            if(passenger != null)
+                pass = passenger;
+        }
+        return String.format("%s%nClass-Type: %s%nSeat-Number: %d%n", pass, typeOfFlightClass, count);
     }
 }
