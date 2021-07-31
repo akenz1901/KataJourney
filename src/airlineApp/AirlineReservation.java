@@ -3,9 +3,10 @@ package airlineApp;
 
 import chapterFour.ClassTypes;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
+import static chapterFour.ClassTypes.ECONOMY;
+import static chapterFour.ClassTypes.FIRST_CLASS;
 
 public class AirlineReservation {
 
@@ -19,7 +20,7 @@ public class AirlineReservation {
             typeOfFlightClass = classType;
     }
     public static void validateConfirmSeat(ClassTypes classType){
-        boolean requiredClassType = classType.equals(ClassTypes.FIRST_CLASS) | classType.equals(ClassTypes.ECONOMY);
+        boolean requiredClassType = classType.equals(FIRST_CLASS) | classType.equals(ECONOMY);
         if(!requiredClassType)
             throw new ClassNotAvailableException("Invalid Class Type");
     }
@@ -28,26 +29,24 @@ public class AirlineReservation {
     }
 
     public void validateSeatNumber(int seatNumber){
-        if(seatNumber < 0 && seatNumber > numberOfSeat.length)
+        if (seatNumber < 1 || seatNumber > numberOfSeat.length+1)
             throw new InvalidSeatNumber("Wrong Seat Number we only have limited seat Number");
     }
 
     public void isSeatAvailableForClassType(int seatNumber, ClassTypes classType) {
         validateSeatNumber(seatNumber);
         validateConfirmSeat(classType);
-        for (int counter = 0; counter < 5; counter++) {
-            if (classType.equals(ClassTypes.FIRST_CLASS) && seatNumber <= 5 && seatNumber > 0) {
+            if (classType.equals(FIRST_CLASS) && seatNumber <= 5) {
                 numberOfSeat[seatNumber-1] = true;
-                checkSeatSelection = true;
-            }
-            for (counter = 5; counter <=numberOfSeat.length; counter++) {
-                if (classType.equals(ClassTypes.ECONOMY) && seatNumber > 5 && seatNumber <= numberOfSeat.length) {
-                    numberOfSeat[seatNumber] = true;
+                if (numberOfSeat[seatNumber-1])
                     checkSeatSelection = true;
-                }
+            }
+            else if(classType.equals(ECONOMY) && seatNumber > 5 && seatNumber <= numberOfSeat.length) {
+                 numberOfSeat[seatNumber-1] = true;
+                 if(numberOfSeat[seatNumber-1])
+                   checkSeatSelection = true;
             }
         }
-    }
     public boolean confirmSeat() {
         return checkSeatSelection;
     }
@@ -63,11 +62,7 @@ public class AirlineReservation {
         return passengersOnSeat[seatNumber].toString();}
 
     public String allPassengerOnSeat() {
-//        int num = 0;
-//        for (PassengerInfo passenger:passengersOnSeat){
-//            num++;
-//            System.out.printf("%d. %s%n", num, passenger);
-//        }
+
         return Arrays.toString(passengersOnSeat);
     }
     public int getNumberOfPassengerOnSeat(){
@@ -80,5 +75,13 @@ public class AirlineReservation {
         return numOfPassenger;
     }
 
-    public String populatePassenger() {return Arrays.toString(passengersOnSeat);}
+    @Override
+    public String toString() {
+        return "AirlineReservation{" +
+                "typeOfFlightClass=" + typeOfFlightClass +
+                ", checkSeatSelection=" + checkSeatSelection +
+                ", numberOfSeat=" + Arrays.toString(numberOfSeat) +
+                ", passengersOnSeat=" + Arrays.toString(passengersOnSeat) +
+                '}';
+    }
 }

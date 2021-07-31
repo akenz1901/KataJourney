@@ -53,11 +53,6 @@ public class AirlineReservationTest {
 
     }
     @Test
-    void seatNumbers_cannotBeAssignedOverLimit(){
-        airlineReservation.isSeatAvailableForClassType(11, ClassTypes.ECONOMY);
-        assertFalse(airlineReservation.confirmSeat());
-    }
-    @Test
     void passenger_canBeAssignedToSeat(){
         airlineReservation.assignSeatForPassenger(1,"Fowler","Martin",ClassTypes.FIRST_CLASS);
         assertEquals("Fowler Martin", airlineReservation.getPassengerBySeatNumber(1));
