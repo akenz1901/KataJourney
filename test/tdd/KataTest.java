@@ -4,6 +4,7 @@ import chapterFour.Kata;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -285,5 +286,16 @@ public class KataTest {
         Kata.sortArrayAsc(allClasses);
 //        Kata.sortArrayDesc(allClasses);
         System.out.println(Arrays.toString(allClasses));
+    }
+    @Test
+    void testArrayList(){
+        ArrayList <Integer> number = new ArrayList<>(10);
+        for (int i = 0; i < 10; i++) {
+                    number.add(i);
+        }
+        Integer num = 1;
+        number.add(4, 9);
+
+        number.forEach(numb -> System.out.printf("%d", numb));
     }
 }

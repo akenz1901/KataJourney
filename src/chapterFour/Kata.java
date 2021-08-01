@@ -215,7 +215,7 @@ public class Kata {
 
     }
 
-    public static void man() {
+    public static String man() {
         String[] array = {"1,2,4,5", "2,4,6,7"};
         String first_string = String.format("%s,%s", array[0], array[1]);
         String[] strArr = first_string.split(",");
@@ -228,32 +228,13 @@ public class Kata {
                     outPut = strArr[j];
             }
         }
+        return outPut;
     }
-    int [] num;
-    private int increment = 0;
-    public void addValue(int number){
-        increment++;
-        num[increment] = number;
-    }
-    public int removeValue(){
-        increment--;
-        return num[increment];
-    }
-    public int getSize(){
-        return num.length;
-    }
-
-
 
     public static void main(String[] args) {
-        Kata k = new Kata();
-        k.addValue(2);
-        System.out.println(k.getSize());
-//        k.removeValue();
-//        System.out.println(k.getSize());
 //        modifyArrayList();
 //        man();
-
+        System.out.print(Math.sqrt(-0.137));
     }
 
 }
