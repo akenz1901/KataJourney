@@ -3,6 +3,7 @@ package airlineApp;
 
 import chapterFour.ClassTypes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import static chapterFour.ClassTypes.ECONOMY;
@@ -14,6 +15,7 @@ public class AirlineReservation {
     private boolean checkSeatSelection;
     private final boolean[] numberOfSeat = new boolean[10];
     private final PassengerInfo [] passengersOnSeat = new PassengerInfo[10];
+    private final ArrayList<PassengerInfo> verifiedPassengers = new ArrayList<>();
 
     public void isThereSeatAvailableFor(ClassTypes classType) {
         validateConfirmSeat(classType);
@@ -59,6 +61,7 @@ public class AirlineReservation {
         isSeatAvailableForClassType(seatNumber, classType);
         PassengerInfo passenger = new PassengerInfo(firstName,lastName);
         passengersOnSeat[seatNumber-1] = passenger;
+        verifiedPassengers.add(passenger);
     }
 
     public String getPassengerBySeatNumber(int seatNumber) {
@@ -80,7 +83,7 @@ public class AirlineReservation {
 
     @Override
     public String toString() {
-        PassengerInfo pass = null;
+        PassengerInfo pass = new PassengerInfo();
         int count = 0;
         for (PassengerInfo passenger:passengersOnSeat){
             count++;
