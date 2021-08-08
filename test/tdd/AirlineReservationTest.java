@@ -55,7 +55,7 @@ public class AirlineReservationTest {
 
     @Test
     void twoPassengers_cannotBeAssignedToOneSeat(){
-        airlineReservation.assignSeatForPassenger(10,"Fowler","Martin", FIRST_CLASS);
+        airlineReservation.assignSeatForPassenger(10,"Fowler","Martin", ECONOMY);
         assertEquals("Fowler Martin", airlineReservation.getPassengerBySeatNumber(10));
 
         airlineReservation.assignSeatForPassenger(5,"Akenz","Martin", FIRST_CLASS);

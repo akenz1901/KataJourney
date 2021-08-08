@@ -30,10 +30,7 @@ public class PassengerInfo {
 
     @Override
     public String toString() {
-        return String.format("%s %s", getFirstName(), getLastName());
+        return String.format("%s %s%nDestination:%s ", getFirstName(), getLastName(), getDestination());
     }
 }
 
-//    public PassengerInfo(String destination){
-//        passengerDestination = destination;
-//    }
