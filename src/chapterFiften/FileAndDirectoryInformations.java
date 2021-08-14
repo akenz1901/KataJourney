@@ -15,8 +15,8 @@ public class FileAndDirectoryInformations {
         if(Files.exists(path)){
             System.out.printf("%n%s", path.getFileName());
             System.out.printf("%s a directory%n", Files.isDirectory(path)? "Is":"Is not" );
-            System.out.printf("%s an absolute path%n", path.isAbsolute() ? "Is":"Is not");
-            System.out.printf("Last modified: s%n%", Files.getLastModifiedTime(path));
+            System.out.printf("%s an absolute path%n", path.isAbsolute()? "Is":"Is not");
+            System.out.printf("Last modified: %s%n", Files.getLastModifiedTime(path));
             System.out.printf("Size: %s%n", Files.size(path));
             System.out.printf("Path: %s%n", path);
             System.out.printf("Absolute path: %s%n", path.toAbsolutePath());
@@ -30,10 +30,8 @@ public class FileAndDirectoryInformations {
                     System.out.println(newPath);
                 }
             }
-            return String.format("%n%s", Files.exists(path));
         }
-        else
-         return String.format("%s exist", Files.exists(path) ? path + "does": path + "does not");
+         return String.format("%s exist", Files.exists(path) ? path + " does": path + " does not");
     }
 
 }
