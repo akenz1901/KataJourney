@@ -1,2 +1,5 @@
-package meyerBricksApp.entities;public class ChoiceType {
+package meyerBricksApp.DataStore;
+
+public enum ChoiceType {
+    A, B
 }
