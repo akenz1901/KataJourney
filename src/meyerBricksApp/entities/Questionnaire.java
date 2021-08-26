@@ -6,7 +6,7 @@ import meyerBricksApp.DataStore.services.QuestionService;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Questionnaire {
+public abstract class Questionnaire {
     private static Map<Integer, String> questionAs = new HashMap<>();
     private static Map<Integer, String> questionBs = new HashMap<>();
     private ChoiceType choice;
@@ -15,13 +15,12 @@ public class Questionnaire {
         setQuestionInA();
         setQuestionInB();
     }
-    private static void setQuestionInA() {
-
+    protected void setQuestionInA() {
         for (int i = 0; i < QuestionService.getSetA().length; i++) {
             Questionnaire.questionAs.put(QuestionService.generateNumber()+1, QuestionService.getSetA()[i]);
         }
     }
-    private void setQuestionInB() {
+    protected void setQuestionInB() {
         QuestionService.resetControl();
         for (int i = 0; i < QuestionService.getSetB().length; i++) {
             questionBs.put(QuestionService.generateNumber()+1, QuestionService.getSetB()[i]);
