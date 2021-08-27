@@ -1,4 +1,4 @@
 package meyerBricksApp.DataStore;
 
-public enum Personality {
+public enum PersonalityTypes {
 }
