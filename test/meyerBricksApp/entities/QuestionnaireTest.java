@@ -10,9 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionnaireTest {
     Questionnaire question;
+    EAndIQuestionnaire questionEAndI;
+    JAndPQuestionnaire questionJAndI;
     @BeforeEach
     void setUp(){
-        question = new Questionnaire();
+        question = new EAndIQuestionnaire();
+        questionEAndI = new EAndIQuestionnaire();
+        questionJAndI = new JAndPQuestionnaire();
+
     }
     @AfterEach
     void tearDown(){}
@@ -22,9 +27,8 @@ class QuestionnaireTest {
         assertNotNull(question);
     }
     @Test
-    void checkQuestionA_andBNotEmpty(){
-        assertFalse(question.getQuestionAs().isEmpty());
-        assertFalse(question.getQuestionBs().isEmpty());
+    void testQuestionInExtroAndIntroQuestionnaireNotEmpty(){
+        assertNotNull( questionEAndI.getQuestionA());
     }
     @Test
     void testThatTwentyQuestionsAreThereInEachQuestionRepo(){
