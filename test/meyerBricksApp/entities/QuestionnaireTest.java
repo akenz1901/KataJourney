@@ -10,15 +10,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionnaireTest {
     EAndIQuestionnaire eandIQuestionnaire;
+    SAndNQuestionnaire sAndNQuestionnaire;
     JAndPQuestionnaire jAndPQuestionnaire;
     @BeforeEach
     void setUp(){
         eandIQuestionnaire = new EAndIQuestionnaire();
         eandIQuestionnaire.setQuestionInA();
         eandIQuestionnaire.setQuestionInB();
+        sAndNQuestionnaire = new SAndNQuestionnaire();
+        sAndNQuestionnaire.setQuestionInA();
+        sAndNQuestionnaire.setQuestionInB();
         jAndPQuestionnaire = new JAndPQuestionnaire();
         jAndPQuestionnaire.setQuestionInA();
-        jAndPQuestionnaire.setQuestionInB();
     }
     @AfterEach
     void tearDown(){
@@ -57,34 +60,50 @@ class QuestionnaireTest {
         }
     }
     @Test
-    void jAndPQuestionnaireNotNull(){
-        assertNotNull(jAndPQuestionnaire);
+    void SAndNQuestionnaireNotNull(){
+        assertNotNull(sAndNQuestionnaire);
     }
     @Test
-    void eachOfSetAofJAndPQuestionnaireNotNull(){
-        assertNotNull(jAndPQuestionnaire.getQuestionAs().get(1));
+    void eachOfSetAofSAndNQuestionnaireNotNull(){
+        assertNotNull(sAndNQuestionnaire.getQuestionAs().get(1));
     }
     @Test
-    void setAofJAndPQuestionnaireHasFiveSizes(){
+    void setAofSAndNQuestionnaireHasFiveSizes(){
+        assertEquals(5, sAndNQuestionnaire.getQuestionAs().size());
+    }
+    @Test
+    void setAOfSAndNQuestionnaireHaveTheRightQuestions() {
+        int count = 1;
+        for (int i = 5; i < 10; i++) {
+            assertEquals(QuestionService.getSetA()[i], sAndNQuestionnaire.getQuestionAs().get(count));
+            count++;
+        }
+    }
+    @Test
+    void setBofSAndNQuestionnaireHasFiveSizes(){
+        assertEquals(5, sAndNQuestionnaire.getQuestionBs().size());
+    }
+    @Test
+    void setBOfSAndNQuestionnaireHaveTheRightQuestions() {
+        int count = 1;
+        for (int i = 5; i < 10; i++) {
+            assertEquals(QuestionService.getSetB()[i], sAndNQuestionnaire.getQuestionBs().get(count));
+            count++;
+        }
+    }
+    @Test
+    void setAJAndPQuestionnaireIsNotEmpty(){
+        assertFalse(jAndPQuestionnaire.getQuestionAs().isEmpty());
+    }
+    @Test
+    void setAOfJAndPQuestionnaireSizeIsFive(){
         assertEquals(5, jAndPQuestionnaire.getQuestionAs().size());
     }
     @Test
     void setAOfJAndPQuestionnaireHaveTheRightQuestions() {
         int count = 1;
-        for (int i = 5; i < 10; i++) {
+        for (int i = 10; i < 15; i++) {
             assertEquals(QuestionService.getSetA()[i], jAndPQuestionnaire.getQuestionAs().get(count));
-            count++;
-        }
-    }
-    @Test
-    void setBofJAndPQuestionnaireHasFiveSizes(){
-        assertEquals(5, jAndPQuestionnaire.getQuestionBs().size());
-    }
-    @Test
-    void setBOfJAndPQuestionnaireHaveTheRightQuestions() {
-        int count = 1;
-        for (int i = 5; i < 10; i++) {
-            assertEquals(QuestionService.getSetB()[i], jAndPQuestionnaire.getQuestionBs().get(count));
             count++;
         }
     }
