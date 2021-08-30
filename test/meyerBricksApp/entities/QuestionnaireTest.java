@@ -12,6 +12,7 @@ class QuestionnaireTest {
     EAndIQuestionnaire eandIQuestionnaire;
     SAndNQuestionnaire sAndNQuestionnaire;
     JAndPQuestionnaire jAndPQuestionnaire;
+    TAndFQuestionnaire tAndFQuestionnaire;
     @BeforeEach
     void setUp(){
         eandIQuestionnaire = new EAndIQuestionnaire();
@@ -22,6 +23,10 @@ class QuestionnaireTest {
         sAndNQuestionnaire.setQuestionInB();
         jAndPQuestionnaire = new JAndPQuestionnaire();
         jAndPQuestionnaire.setQuestionInA();
+        jAndPQuestionnaire.setQuestionInB();
+        tAndFQuestionnaire = new TAndFQuestionnaire();
+        tAndFQuestionnaire.setQuestionInA();
+        tAndFQuestionnaire.setQuestionInB();
     }
     @AfterEach
     void tearDown(){
@@ -104,6 +109,55 @@ class QuestionnaireTest {
         int count = 1;
         for (int i = 10; i < 15; i++) {
             assertEquals(QuestionService.getSetA()[i], jAndPQuestionnaire.getQuestionAs().get(count));
+            count++;
+        }
+    }
+    @Test
+    void setBJAndPQuestionnaireIsNotEmpty(){
+        assertFalse(jAndPQuestionnaire.getQuestionBs().isEmpty());
+    }
+
+    @Test
+    void setBOfJAndPQuestionnaireSizeIsFive(){
+        assertEquals(5, jAndPQuestionnaire.getQuestionBs().size());
+    }
+    @Test
+    void setBOfJAndPQuestionnaireHaveTheRightQuestions() {
+        int count = 1;
+        for (int i = 10; i < 15; i++) {
+            assertEquals(QuestionService.getSetB()[i], jAndPQuestionnaire.getQuestionBs().get(count));
+            count++;
+        }
+    }
+    @Test
+    void setATAndFQuestionnaireIsNotEmpty(){
+        assertFalse(tAndFQuestionnaire.getQuestionAs().isEmpty());
+    }
+    @Test
+    void setATAndFQuestionnaireContainsFiveElements(){
+        assertEquals(5, tAndFQuestionnaire.getQuestionAs().size());
+    }
+    @Test
+    void setAOfTAndFQuestionnaireHaveTheRightQuestions() {
+        int count = 1;
+        for (int i = 15; i < 20; i++) {
+            assertEquals(QuestionService.getSetA()[i], tAndFQuestionnaire.getQuestionAs().get(count));
+            count++;
+        }
+    }
+    @Test
+    void setBTAndFQuestionnaireIsNotEmpty(){
+        assertFalse(tAndFQuestionnaire.getQuestionBs().isEmpty());
+    }
+    @Test
+    void setBTAndFQuestionnaireContainsFiveElements(){
+        assertEquals(5, tAndFQuestionnaire.getQuestionAs().size());
+    }
+    @Test
+    void setBOfTAndFQuestionnaireHaveTheRightQuestions() {
+        int count = 1;
+        for (int i = 15; i < 20; i++) {
+            assertEquals(QuestionService.getSetB()[i], tAndFQuestionnaire.getQuestionBs().get(count));
             count++;
         }
     }
