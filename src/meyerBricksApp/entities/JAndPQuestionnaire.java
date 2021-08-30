@@ -14,6 +14,10 @@ public class JAndPQuestionnaire extends Questionnaire{
 
     @Override
     public void setQuestionInB() {
-
+        int count = 1;
+        for (int i = 10; i < 15; i++) {
+            super.getQuestionBs().put(count, QuestionService.getSetB()[i]);
+            count++;
+        }
     }
 }
