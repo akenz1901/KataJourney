@@ -1,7 +1,7 @@
 package meyerBricksApp.entities;
 
 
-import meyerBricksApp.DataStore.services.QuestionService;
+import meyerBricksApp.DataStore.services.QuestionnaireService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,21 +16,13 @@ class QuestionnaireTest {
     @BeforeEach
     void setUp(){
         eandIQuestionnaire = new EAndIQuestionnaire();
-        eandIQuestionnaire.setQuestionInA();
-        eandIQuestionnaire.setQuestionInB();
         sAndNQuestionnaire = new SAndNQuestionnaire();
-        sAndNQuestionnaire.setQuestionInA();
-        sAndNQuestionnaire.setQuestionInB();
         jAndPQuestionnaire = new JAndPQuestionnaire();
-        jAndPQuestionnaire.setQuestionInA();
-        jAndPQuestionnaire.setQuestionInB();
         tAndFQuestionnaire = new TAndFQuestionnaire();
-        tAndFQuestionnaire.setQuestionInA();
-        tAndFQuestionnaire.setQuestionInB();
     }
     @AfterEach
     void tearDown(){
-        QuestionService.resetControl();
+        QuestionnaireService.resetControl();
     }
     @Test
     void eAndIQuestionnaireNotNull(){
@@ -47,7 +39,7 @@ class QuestionnaireTest {
     @Test
     void setAOfeAndQuestionnaireHaveTheRightQuestions() {
         for (int i = 0; i < 5; i++) {
-            assertEquals(QuestionService.getSetA()[i], eandIQuestionnaire.getQuestionAs().get(i+1));
+            assertEquals(QuestionnaireService.getSetA()[i], eandIQuestionnaire.getQuestionAs().get(i+1));
         }
     }
     @Test
@@ -61,7 +53,7 @@ class QuestionnaireTest {
     @Test
     void setBOfeAndQuestionnaireHaveTheRightQuestions() {
         for (int i = 0; i < 5; i++) {
-            assertEquals(QuestionService.getSetB()[i], eandIQuestionnaire.getQuestionBs().get(i+1));
+            assertEquals(QuestionnaireService.getSetB()[i], eandIQuestionnaire.getQuestionBs().get(i+1));
         }
     }
     @Test
@@ -80,7 +72,7 @@ class QuestionnaireTest {
     void setAOfSAndNQuestionnaireHaveTheRightQuestions() {
         int count = 1;
         for (int i = 5; i < 10; i++) {
-            assertEquals(QuestionService.getSetA()[i], sAndNQuestionnaire.getQuestionAs().get(count));
+            assertEquals(QuestionnaireService.getSetA()[i], sAndNQuestionnaire.getQuestionAs().get(count));
             count++;
         }
     }
@@ -92,7 +84,7 @@ class QuestionnaireTest {
     void setBOfSAndNQuestionnaireHaveTheRightQuestions() {
         int count = 1;
         for (int i = 5; i < 10; i++) {
-            assertEquals(QuestionService.getSetB()[i], sAndNQuestionnaire.getQuestionBs().get(count));
+            assertEquals(QuestionnaireService.getSetB()[i], sAndNQuestionnaire.getQuestionBs().get(count));
             count++;
         }
     }
@@ -108,7 +100,7 @@ class QuestionnaireTest {
     void setAOfJAndPQuestionnaireHaveTheRightQuestions() {
         int count = 1;
         for (int i = 10; i < 15; i++) {
-            assertEquals(QuestionService.getSetA()[i], jAndPQuestionnaire.getQuestionAs().get(count));
+            assertEquals(QuestionnaireService.getSetA()[i], jAndPQuestionnaire.getQuestionAs().get(count));
             count++;
         }
     }
@@ -125,7 +117,7 @@ class QuestionnaireTest {
     void setBOfJAndPQuestionnaireHaveTheRightQuestions() {
         int count = 1;
         for (int i = 10; i < 15; i++) {
-            assertEquals(QuestionService.getSetB()[i], jAndPQuestionnaire.getQuestionBs().get(count));
+            assertEquals(QuestionnaireService.getSetB()[i], jAndPQuestionnaire.getQuestionBs().get(count));
             count++;
         }
     }
@@ -141,7 +133,7 @@ class QuestionnaireTest {
     void setAOfTAndFQuestionnaireHaveTheRightQuestions() {
         int count = 1;
         for (int i = 15; i < 20; i++) {
-            assertEquals(QuestionService.getSetA()[i], tAndFQuestionnaire.getQuestionAs().get(count));
+            assertEquals(QuestionnaireService.getSetA()[i], tAndFQuestionnaire.getQuestionAs().get(count));
             count++;
         }
     }
@@ -157,7 +149,7 @@ class QuestionnaireTest {
     void setBOfTAndFQuestionnaireHaveTheRightQuestions() {
         int count = 1;
         for (int i = 15; i < 20; i++) {
-            assertEquals(QuestionService.getSetB()[i], tAndFQuestionnaire.getQuestionBs().get(count));
+            assertEquals(QuestionnaireService.getSetB()[i], tAndFQuestionnaire.getQuestionBs().get(count));
             count++;
         }
     }
