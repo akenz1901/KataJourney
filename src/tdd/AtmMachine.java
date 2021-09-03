@@ -1,8 +1,8 @@
 package tdd;
 
 public class AtmMachine {
-    double mainBalance;
-    String pin;
+    private double mainBalance;
+    private String pin;
 
     public void createPin(String newPin) {
         pin = newPin;
