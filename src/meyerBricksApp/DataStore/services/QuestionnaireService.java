@@ -2,7 +2,7 @@ package meyerBricksApp.DataStore.services;
 
 import meyerBricksApp.entities.Questionnaire;
 
-public class QuestionService {
+public class QuestionnaireService {
     private static final String[] setA = new String[20];
     private static final String[] setB = new String[20];
     private static Integer questionNumber = 0;
