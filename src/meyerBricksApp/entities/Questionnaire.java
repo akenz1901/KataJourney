@@ -1,17 +1,25 @@
 package meyerBricksApp.entities;
 
 import meyerBricksApp.DataStore.ChoiceType;
-import meyerBricksApp.DataStore.services.QuestionService;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Questionnaire {
-    private final Map<Integer, String> questionAs = new HashMap<>();
-    private final Map<Integer, String> questionBs = new HashMap<>();
+    private final Map<Integer, String> questionAs = new HashMap<>(5);
+    private final Map<Integer, String> questionBs = new HashMap<>(5);
+    private ChoiceType preference;
 
-    public abstract  void setQuestionInA();
-    public abstract void setQuestionInB();
+    protected abstract  void storeQuestionInA();
+    protected abstract void storeQuestionInB();
+
+    protected ChoiceType getPreference() {
+        return preference;
+    }
+
+    protected void setPreference(ChoiceType preference) {
+        this.preference = preference;
+    }
 
     public Map<Integer, String> getQuestionAs() {
         return questionAs;
