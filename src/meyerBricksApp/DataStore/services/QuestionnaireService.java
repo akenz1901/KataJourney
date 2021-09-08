@@ -30,7 +30,7 @@ public class QuestionnaireService {
         setA[generateNumber()] = "tough-minded, just";
         setA[generateNumber()] = "preparation, plan ahead";
         setA[generateNumber()] = "active, initiate";
-        setA[generateNumber()] = "facts, things, 'what is' ";
+        setA[generateNumber()] = "facts, things, 'what is'";
         setA[generateNumber()] = "matter of fact, issue-oriented";
         setA[generateNumber()] = "control, govern";
         resetControl();

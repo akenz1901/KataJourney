@@ -11,6 +11,14 @@ public class QuestionServiceImp implements QuestionService{
         String question = questionnaire.getQuestionAs().get(questionNumber);
         return question;
     }
+
+    @Override
+    public String displayQuestionB(Questionnaire questionnaire, int questionLocation) {
+        validateQuestionNumber(questionLocation);
+        String question = questionnaire.getQuestionBs().get(questionLocation);
+        return question;
+    }
+
     private void validateQuestionNumber(int number){
         if (number > 5 || number < 0)
          throw new MeyerBriggsAppException("Invalid Number");
