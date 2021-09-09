@@ -1,5 +1,6 @@
 package meyerBricksApp.entities;
 
+import meyerBricksApp.DataStore.ChoiceType;
 import meyerBricksApp.DataStore.services.QuestionService;
 import meyerBricksApp.DataStore.services.QuestionServiceImp;
 import meyerBricksApp.MeyerBriggsExceptions.MeyerBriggsAppException;
@@ -63,5 +64,12 @@ public class QuestionServiceImpTest {
         assertEquals("facts, things, 'what is'", questionService.displayQuestionA(tAndFQuestionnaire, 3));
 
         assertEquals("sensitive, people-oriented, compassionate", questionService.displayQuestionB(tAndFQuestionnaire, 4));
+    }
+    @Test
+    void selectChoice(){
+        assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(question, 1));
+        assertEquals("Conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
+        Aspirant aspirant = new Aspirant();
+        assertEquals(1, questionService.selectChoice(ChoiceType.A, question));
     }
 }
