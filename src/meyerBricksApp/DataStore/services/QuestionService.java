@@ -10,5 +10,5 @@ public interface QuestionService {
 
     String displayQuestionB(Questionnaire questionnaire, int questionNumber);
 
-    int selectChoiceExtrovertAndIntrovert(ChoiceType choice, Aspirant aspirant);
+    int selectChoiceExtrovertAndIntrovert(ChoiceType choice, Questionnaire questionnaire);
 }
