@@ -8,7 +8,7 @@ public class KataTwo {
         for(int numberCounter = 0 ;numbers.length>=numberCounter; ){
             sum = sum+numbers[numberCounter];
             System.out.println(sum);
-//            if(numberCounter % 1== 0) {
+//            if(numberCounter % 1 == 0) {
 //                ;
 //            }
             numberCounter++;
