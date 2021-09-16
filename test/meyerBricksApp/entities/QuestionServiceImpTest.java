@@ -69,7 +69,6 @@ public class QuestionServiceImpTest {
     void selectChoice(){
         assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(question, 1));
         assertEquals("Conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
-        Aspirant aspirant = new Aspirant();
-        assertEquals(1, questionService.selectChoice(ChoiceType.A, question));
+        assertEquals(1, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.B, question));
     }
 }
