@@ -7,6 +7,11 @@ public class JAndPQuestionnaire extends Questionnaire{
     public JAndPQuestionnaire(){
         storeQuestionInA();
         storeQuestionInB();
+        IDNUMBER = 2;
+    }
+
+    public int getIDNumber(){
+        return IDNUMBER;
     }
     @Override
     public void storeQuestionInA() {

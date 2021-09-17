@@ -7,8 +7,12 @@ public class EAndIQuestionnaire extends Questionnaire{
     public EAndIQuestionnaire(){
         storeQuestionInA();
         storeQuestionInB();
+        IDNUMBER = 1;
     }
 
+    public int getNumber(){
+        return IDNUMBER;
+    }
     public void storeQuestionInA(){
         for (int i = 0; i < 5; i++) {
             super.getQuestionAs().put(QuestionnaireService.generateNumber()+1, QuestionnaireService.getSetA()[i]);
