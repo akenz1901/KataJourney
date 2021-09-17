@@ -1,75 +1,46 @@
 package meyerBricksApp.entities;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Aspirant {
-    int extrovertScore;
-    int introvertScore;
-    int sensingScore;
-    int intuitionScore;
-    int thinkingScore;
-    int feelingScore;
-    int judgingScore;
-    int perceivingScore;
+    String[] questionnaireScore = {"Extrovert", "Introvert", "Sensing", "Intuition", "Thinking", "Feeling", "Judging", "Perceiving"};
+    Map<String, Integer> scores = new HashMap<>();
 
-    public int getExtrovertScore() {
-        return extrovertScore;
+    public int increaseExtrovertScore(){
+        scores.put(questionnaireScore[0], +1);
+        return scores.get(questionnaireScore[0]);
+    }
+    public int increaseIntrovertScore(){
+        scores.put(questionnaireScore[1], +1);
+        return scores.get(questionnaireScore[1]);
+    }
+    public int increaseSensingScore(){
+        scores.put(questionnaireScore[2], +1);
+        return scores.get(questionnaireScore[2]);
+    }
+    public int increaseIntuitionScore(){
+        scores.put(questionnaireScore[3], +1);
+        return scores.get(questionnaireScore[3]);
+    }
+    public int increaseThinkingScore(){
+        scores.put(questionnaireScore[4], +1);
+        return scores.get(questionnaireScore[4]);
+    }
+    public int increaseFeelingScore(){
+        scores.put(questionnaireScore[5], +1);
+        return scores.get(questionnaireScore[1]);
+    }
+    public int increaseJudgingScore(){
+        scores.put(questionnaireScore[6], +1);
+        return scores.get(questionnaireScore[6]);
+    }
+    public int increasePerceivingScore() {
+        scores.put(questionnaireScore[7], +1);
+        return scores.get(questionnaireScore[7]);
     }
 
-    public void addExtrovertScore() {
-        this.extrovertScore++;
-    }
-
-    public int getIntrovertScore() {
-        return introvertScore;
-    }
-
-    public void addIntrovertScore() {
-        this.introvertScore++;
-    }
-
-    public int getSensingScore() {
-        return sensingScore;
-    }
-
-    public void addSensingScore() {
-        this.sensingScore++;
-    }
-
-    public int getIntuitionScore() {
-        return intuitionScore;
-    }
-
-    public void addIntuitionScore() {
-        this.intuitionScore++;
-    }
-
-    public int getThinkingScore() {
-        return thinkingScore;
-    }
-
-    public void addThinkingScore() {
-        this.thinkingScore++;
-    }
-
-    public int getFeelingScore() {
-        return feelingScore;
-    }
-
-    public void addFeelingScore() {
-        this.feelingScore++;
-    }
-
-    public int getJudgingScore() {
-        return judgingScore;
-    }
-
-    public void addJudgingScore() {
-        this.judgingScore++;
-    }
-
-    public int getPerceivingScore() {
-        return perceivingScore;
-    }
-
-    public void addPerceivingScore() {
-        this.perceivingScore++;
+    public Map<String, Integer> getScore() {
+        return scores;
     }
 }
