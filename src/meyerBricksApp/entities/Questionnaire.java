@@ -9,9 +9,12 @@ public abstract class Questionnaire {
     private final Map<Integer, String> questionAs = new HashMap<>(5);
     private final Map<Integer, String> questionBs = new HashMap<>(5);
     private ChoiceType preference;
+    protected static int IDNUMBER;
 
     protected abstract  void storeQuestionInA();
     protected abstract void storeQuestionInB();
+
+    public abstract int getIDNumber();
 
     protected ChoiceType getPreference() {
         return preference;

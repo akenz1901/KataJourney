@@ -24,4 +24,9 @@ public class EAndIQuestionnaire extends Questionnaire{
             super.getQuestionBs().put(QuestionnaireService.generateNumber()+1, QuestionnaireService.getSetB()[i]);
         }
     }
+
+    @Override
+    public int getIDNumber() {
+        return IDNUMBER;
+    }
 }

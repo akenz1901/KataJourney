@@ -10,9 +10,6 @@ public class JAndPQuestionnaire extends Questionnaire{
         IDNUMBER = 2;
     }
 
-    public int getIDNumber(){
-        return IDNUMBER;
-    }
     @Override
     public void storeQuestionInA() {
         int count = 1;
@@ -29,5 +26,10 @@ public class JAndPQuestionnaire extends Questionnaire{
             super.getQuestionBs().put(count, QuestionnaireService.getSetB()[i]);
             count++;
         }
+    }
+
+    @Override
+    public int getIDNumber() {
+        return IDNUMBER;
     }
 }

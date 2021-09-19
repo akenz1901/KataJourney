@@ -7,6 +7,7 @@ public class SAndNQuestionnaire extends Questionnaire{
     public SAndNQuestionnaire(){
         storeQuestionInA();
         storeQuestionInB();
+        IDNUMBER = 3;
     }
     @Override
     public void storeQuestionInA() {
@@ -24,5 +25,10 @@ public class SAndNQuestionnaire extends Questionnaire{
             super.getQuestionBs().put(count, QuestionnaireService.getSetB()[i]);
             count++;
         }
+    }
+
+    @Override
+    public int getIDNumber() {
+        return IDNUMBER;
     }
 }

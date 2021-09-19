@@ -7,6 +7,7 @@ public class TAndFQuestionnaire extends Questionnaire{
     public TAndFQuestionnaire(){
         storeQuestionInA();
         storeQuestionInB();
+        IDNUMBER = 4;
     }
     @Override
     public void storeQuestionInA() {
@@ -24,5 +25,10 @@ public class TAndFQuestionnaire extends Questionnaire{
             super.getQuestionBs().put(count, QuestionnaireService.getSetB()[i]);
             count++;
         }
+    }
+
+    @Override
+    public int getIDNumber() {
+        return IDNUMBER;
     }
 }
