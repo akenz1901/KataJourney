@@ -3,10 +3,13 @@ package meyerBricksApp.entities;
 import meyerBricksApp.DataStore.ChoiceType;
 import meyerBricksApp.DataStore.services.QuestionService;
 import meyerBricksApp.DataStore.services.QuestionServiceImp;
+import meyerBricksApp.DataStore.services.QuestionnaireService;
 import meyerBricksApp.MeyerBriggsExceptions.MeyerBriggsAppException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,6 +32,7 @@ public class QuestionServiceImpTest {
 
     @AfterEach
     void tearDown() {
+        QuestionnaireService.resetControl();
     }
 
     @Test
@@ -36,7 +40,7 @@ public class QuestionServiceImpTest {
         assertNotNull(questionService.displayQuestionA(question, 1));
         assertEquals("more outgoing, think out loud", questionService.displayQuestionA(question, 5));
 
-        assertEquals("Conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
+        assertEquals("conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
 
 
     }
@@ -68,7 +72,23 @@ public class QuestionServiceImpTest {
     @Test
     void selectChoice(){
         assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(question, 1));
-        assertEquals("Conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
-        assertEquals(1, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.B, question));
+        assertEquals("conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
+        Aspirant mercy = new Aspirant("Akenz", "Michael", LocalDate.of(1995, 4, 24));
+        assertEquals(1, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.B, mercy));
+    }
+    @Test
+    void selectChoiceMoreThanOneTime(){
+        assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(question, 1));
+        assertEquals("conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
+        Aspirant mercy = new Aspirant("Akenz", "Michael", LocalDate.of(1995, 4, 24));
+        assertEquals(1, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.B, mercy));
+
+        assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(question, 1));
+        assertEquals("conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
+        assertEquals(2, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.B, mercy));
+
+        assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(question, 1));
+        assertEquals("conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
+        assertEquals(1, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.A, mercy));
     }
 }
