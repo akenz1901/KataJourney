@@ -14,7 +14,7 @@ public class QuestionnaireService {
 
     public static void setUpQuestion(){
         setA[generateNumber()] = "expend energy, enjoy groups";
-        setA[generateNumber()] = "conserve energy, enjoy one-on-one";
+        setA[generateNumber()] = "interpret literally";
         setA[generateNumber()] = "logical, thinking, questioning";
         setA[generateNumber()] = "organized, orderly";
         setA[generateNumber()] = "more outgoing, think out loud";
@@ -35,7 +35,7 @@ public class QuestionnaireService {
         setA[generateNumber()] = "control, govern";
         resetControl();
 
-        setB[generateNumber()] = "Conserve energy, enjoy one-on-one";
+        setB[generateNumber()] = "conserve energy, enjoy one-on-one";
         setB[generateNumber()] = "look for meaning and possibilities";
         setB[generateNumber()] = "empathetic, feeling, accommodating";
         setB[generateNumber()] = "flexible, adaptable";
