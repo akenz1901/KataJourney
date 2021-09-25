@@ -22,9 +22,15 @@ public class QuestionServiceImp implements QuestionService{
     }
 
     @Override
-    public int selectChoiceExtrovertAndIntrovert(ChoiceType choice, Questionnaire questionnaire) {
-//        if (choice.equals(ChoiceType.A))
-        return 0;
+    public int selectChoiceExtrovertAndIntrovert(ChoiceType choice, Aspirant aspirant) {
+        int score = 0;
+        if (choice.equals(ChoiceType.A)) {
+            score = aspirant.increaseExtrovertScore();
+            return score;
+        }
+        else if (choice.equals(ChoiceType.B))
+            score = aspirant.increaseIntrovertScore();
+            return score;
     }
 
     private void validateQuestionNumber(int number){
