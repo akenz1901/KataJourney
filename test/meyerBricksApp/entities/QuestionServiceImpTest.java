@@ -83,12 +83,20 @@ public class QuestionServiceImpTest {
         Aspirant mercy = new Aspirant("Akenz", "Michael", LocalDate.of(1995, 4, 24));
         assertEquals(1, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.B, mercy));
 
-        assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(question, 1));
-        assertEquals("conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
+        assertEquals("interpret literally", questionService.displayQuestionA(question, 2));
+        assertEquals("look for meaning and possibilities", questionService.displayQuestionB(question, 2));
         assertEquals(2, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.B, mercy));
 
-        assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(question, 1));
-        assertEquals("conserve energy, enjoy one-on-one", questionService.displayQuestionB(question, 1));
+        assertEquals("logical, thinking, questioning", questionService.displayQuestionA(question, 3));
+        assertEquals("empathetic, feeling, accommodating", questionService.displayQuestionB(question, 3));
         assertEquals(1, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.A, mercy));
+
+        assertEquals("organized, orderly", questionService.displayQuestionA(question, 4));
+        assertEquals("flexible, adaptable", questionService.displayQuestionB(question, 4));
+        assertEquals(3, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.B, mercy));
+
+        assertEquals("more outgoing, think out loud", questionService.displayQuestionA(question, 5));
+        assertEquals("more reserved, think to yourself", questionService.displayQuestionB(question, 5));
+        assertEquals(2, questionService.selectChoiceExtrovertAndIntrovert(ChoiceType.A, mercy));
     }
 }
