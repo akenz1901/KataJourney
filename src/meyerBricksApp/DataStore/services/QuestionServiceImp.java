@@ -6,6 +6,9 @@ import meyerBricksApp.MeyerBriggsExceptions.MeyerBriggsAppException;
 import meyerBricksApp.entities.Aspirant;
 import meyerBricksApp.entities.Questionnaire;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QuestionServiceImp implements QuestionService{
     @Override
     public String displayQuestionA(Questionnaire questionnaire, int questionNumber) {
@@ -33,6 +36,13 @@ public class QuestionServiceImp implements QuestionService{
             return score;
     }
 
+    private void validateCommonQuestionEffectOnScore(Integer question){
+        List<Integer> numberConsistency = new ArrayList<>(5);
+        if (numberConsistency.contains(question))
+           throw new MeyerBriggsAppException("Question Already Attempted");
+
+        numberConsistency.add(question);
+    }
     private void validateQuestionNumber(int number){
         if (number > 5 || number < 0)
          throw new MeyerBriggsAppException("Invalid Number");
