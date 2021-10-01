@@ -2,7 +2,6 @@ package meyerBricksApp.DataStore.services;
 
 import meyerBricksApp.DataStore.ChoiceType;
 import meyerBricksApp.entities.Aspirant;
-import meyerBricksApp.entities.EAndIQuestionnaire;
 import meyerBricksApp.entities.Questionnaire;
 
 public interface QuestionService {
@@ -10,5 +9,5 @@ public interface QuestionService {
 
     String displayQuestionB(Questionnaire questionnaire, int questionNumber);
 
-    int selectChoiceExtrovertAndIntrovert(ChoiceType choice, Aspirant aspirant);
+    int selectChoice(ChoiceType choice, Aspirant aspirant);
 }
