@@ -4,6 +4,7 @@ package meyerBricksApp.DataStore.services;
 import meyerBricksApp.DataStore.ChoiceType;
 import meyerBricksApp.MeyerBriggsExceptions.MeyerBriggsAppException;
 import meyerBricksApp.entities.Aspirant;
+import meyerBricksApp.entities.EAndIQuestionnaire;
 import meyerBricksApp.entities.Questionnaire;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class QuestionServiceImp implements QuestionService{
     @Override
     public String displayQuestionA(Questionnaire questionnaire, int questionNumber) {
         validateQuestionNumber(questionNumber);
+        validateCommonQuestionEffectOnScore(questionnaire, questionNumber);
         String question = questionnaire.getQuestionAs().get(questionNumber);
         return question;
     }
@@ -20,12 +22,13 @@ public class QuestionServiceImp implements QuestionService{
     @Override
     public String displayQuestionB(Questionnaire questionnaire, int questionLocation) {
         validateQuestionNumber(questionLocation);
+        validateCommonQuestionEffectOnScore(questionnaire, questionLocation);
         String question = questionnaire.getQuestionBs().get(questionLocation);
         return question;
     }
 
     @Override
-    public int selectChoiceExtrovertAndIntrovert(ChoiceType choice, Aspirant aspirant) {
+    public int selectChoice(ChoiceType choice, Aspirant aspirant) {
         int score = 0;
         if (choice.equals(ChoiceType.A)) {
             score = aspirant.increaseExtrovertScore();
@@ -36,13 +39,12 @@ public class QuestionServiceImp implements QuestionService{
             return score;
     }
 
-    private void validateCommonQuestionEffectOnScore(Integer question){
-        List<Integer> numberConsistency = new ArrayList<>(5);
-        if (numberConsistency.contains(question))
+    private void validateCommonQuestionEffectOnScore(Questionnaire questionnaire, Integer question){
+        if (questionnaire.getQuestionTrack().contains(question))
            throw new MeyerBriggsAppException("Question Already Attempted");
-
-        numberConsistency.add(question);
+        questionnaire.getQuestionTrack().add(question);
     }
+
     private void validateQuestionNumber(int number){
         if (number > 5 || number < 0)
          throw new MeyerBriggsAppException("Invalid Number");
