@@ -99,7 +99,7 @@ class QuestionnaireTest {
     @Test
     void setAOfJAndPQuestionnaireHaveTheRightQuestions() {
         int count = 1;
-        for (int i = 10; i < 15; i++) {
+        for (int i = 15; i < 20; i++) {
             assertEquals(QuestionnaireService.getSetA()[i], jAndPQuestionnaire.getQuestionAs().get(count));
             count++;
         }
@@ -116,7 +116,7 @@ class QuestionnaireTest {
     @Test
     void setBOfJAndPQuestionnaireHaveTheRightQuestions() {
         int count = 1;
-        for (int i = 10; i < 15; i++) {
+        for (int i = 15; i < 20; i++) {
             assertEquals(QuestionnaireService.getSetB()[i], jAndPQuestionnaire.getQuestionBs().get(count));
             count++;
         }
@@ -132,7 +132,7 @@ class QuestionnaireTest {
     @Test
     void setAOfTAndFQuestionnaireHaveTheRightQuestions() {
         int count = 1;
-        for (int i = 15; i < 20; i++) {
+        for (int i = 10; i < 15; i++) {
             assertEquals(QuestionnaireService.getSetA()[i], tAndFQuestionnaire.getQuestionAs().get(count));
             count++;
         }
@@ -148,7 +148,7 @@ class QuestionnaireTest {
     @Test
     void setBOfTAndFQuestionnaireHaveTheRightQuestions() {
         int count = 1;
-        for (int i = 15; i < 20; i++) {
+        for(int i = 10; i < 15; i++) {
             assertEquals(QuestionnaireService.getSetB()[i], tAndFQuestionnaire.getQuestionBs().get(count));
             count++;
         }
