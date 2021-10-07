@@ -9,5 +9,7 @@ public interface QuestionService {
 
     String displayQuestionB(Questionnaire questionnaire, int questionNumber);
 
-    int selectChoice(ChoiceType choice, Aspirant aspirant);
+    int scoreCandidate(Questionnaire questionnaire, Aspirant aspirant);
+
+    ChoiceType confirmChoiceWasSelected(Questionnaire questionnaire);
 }
