@@ -3,18 +3,14 @@ package meyerBricksApp.DataStore.services;
 
 import meyerBricksApp.DataStore.ChoiceType;
 import meyerBricksApp.MeyerBriggsExceptions.MeyerBriggsAppException;
-import meyerBricksApp.entities.Aspirant;
-import meyerBricksApp.entities.EAndIQuestionnaire;
-import meyerBricksApp.entities.Questionnaire;
+import meyerBricksApp.entities.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class QuestionServiceImp implements QuestionService{
     @Override
     public String displayQuestionA(Questionnaire questionnaire, int questionNumber) {
         validateQuestionNumber(questionNumber);
-        validateCommonQuestionEffectOnScore(questionnaire, questionNumber);
+        validateCommonQuestionEffectOnScore(questionnaire, questionnaire.getQuestionAs().get(questionNumber));
         String question = questionnaire.getQuestionAs().get(questionNumber);
         return question;
     }
@@ -22,27 +18,75 @@ public class QuestionServiceImp implements QuestionService{
     @Override
     public String displayQuestionB(Questionnaire questionnaire, int questionLocation) {
         validateQuestionNumber(questionLocation);
-        validateCommonQuestionEffectOnScore(questionnaire, questionLocation);
+        validateCommonQuestionEffectOnScore(questionnaire, questionnaire.getQuestionBs().get(questionLocation));
         String question = questionnaire.getQuestionBs().get(questionLocation);
         return question;
     }
 
     @Override
-    public int selectChoice(ChoiceType choice, Aspirant aspirant) {
+    public int scoreCandidate(Questionnaire questionnaire, Aspirant aspirant) {
+
+        return switch (questionnaire.getClass().getSimpleName()) {
+            case "EAndIQuestionnaire" -> scoreCandidateForE_andIQuestionnaire((EAndIQuestionnaire) questionnaire, aspirant);
+            case "SAndNQuestionnaire" -> scoreCandidateForS_andNQuestionnaire((SAndNQuestionnaire) questionnaire, aspirant);
+            case "JAndPQuestionnaire" -> scoreCandidateForJ_andPQuestionnaire((JAndPQuestionnaire) questionnaire, aspirant);
+            case "TAndFQuestionnaire" -> scoreCandidateForT_andFQuestionnaire((TAndFQuestionnaire) questionnaire, aspirant);
+            default -> 0;
+        };
+    }
+
+    private int scoreCandidateForT_andFQuestionnaire(TAndFQuestionnaire questionnaire, Aspirant aspirant) {
         int score = 0;
-        if (choice.equals(ChoiceType.A)) {
+        if (questionnaire.getChoice().equals(ChoiceType.A) ) {
+            score = aspirant.increaseThinkingScore();
+            return score;
+        }
+        else if (questionnaire.getChoice().equals(ChoiceType.B))
+            score = aspirant.increaseFeelingScore();
+        return score;
+    }
+
+    public static int scoreCandidateForE_andIQuestionnaire(EAndIQuestionnaire questionnaire, Aspirant aspirant){
+        int score = 0;
+        if (questionnaire.getChoice().equals(ChoiceType.A) ) {
             score = aspirant.increaseExtrovertScore();
             return score;
         }
-        else if (choice.equals(ChoiceType.B))
+        else if (questionnaire.getChoice().equals(ChoiceType.B))
             score = aspirant.increaseIntrovertScore();
-            return score;
+        return score;
     }
 
-    private void validateCommonQuestionEffectOnScore(Questionnaire questionnaire, Integer question){
-        if (questionnaire.getQuestionTrack().contains(question))
+    public static int scoreCandidateForS_andNQuestionnaire(SAndNQuestionnaire questionnaire, Aspirant aspirant){
+        int score = 0;
+        if (questionnaire.getChoice().equals(ChoiceType.A) ) {
+            score = aspirant.increaseSensingScore();
+            return score;
+        }
+        else if (questionnaire.getChoice().equals(ChoiceType.B))
+            score = aspirant.increaseIntuitionScore();
+        return score;
+    }
+    public static int scoreCandidateForJ_andPQuestionnaire(JAndPQuestionnaire questionnaire, Aspirant aspirant){
+        int score = 0;
+        if (questionnaire.getChoice().equals(ChoiceType.A) ) {
+            score = aspirant.increaseJudgingScore();
+            return score;
+        }
+        else if (questionnaire.getChoice().equals(ChoiceType.B))
+            score = aspirant.increasePerceivingScore();
+        return score;
+    }
+
+    @Override
+    public ChoiceType confirmChoiceWasSelected(Questionnaire questionnaire) {
+        return questionnaire.getChoice();
+    }
+
+    private void validateCommonQuestionEffectOnScore(Questionnaire questionnaire, String question){
+        if (questionnaire.getTemporaryQuestionBank().contains(question))
            throw new MeyerBriggsAppException("Question Already Attempted");
-        questionnaire.getQuestionTrack().add(question);
+        questionnaire.getTemporaryQuestionBank().add(question);
     }
 
     private void validateQuestionNumber(int number){
