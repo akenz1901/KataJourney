@@ -7,8 +7,8 @@ public class SAndNQuestionnaire extends Questionnaire{
     public SAndNQuestionnaire(){
         storeQuestionInA();
         storeQuestionInB();
-        IDNUMBER = 3;
     }
+
     @Override
     public void storeQuestionInA() {
         int count = 1;

@@ -7,13 +7,12 @@ public class JAndPQuestionnaire extends Questionnaire{
     public JAndPQuestionnaire(){
         storeQuestionInA();
         storeQuestionInB();
-        IDNUMBER = 2;
     }
 
     @Override
     public void storeQuestionInA() {
         int count = 1;
-        for (int i = 10; i < 15; i++) {
+        for (int i = 15; i < 20; i++) {
             super.getQuestionAs().put(count, QuestionnaireService.getSetA()[i]);
             count++;
         }
@@ -22,7 +21,7 @@ public class JAndPQuestionnaire extends Questionnaire{
     @Override
     public void storeQuestionInB() {
         int count = 1;
-        for (int i = 10; i < 15; i++) {
+        for (int i = 15; i < 20; i++) {
             super.getQuestionBs().put(count, QuestionnaireService.getSetB()[i]);
             count++;
         }

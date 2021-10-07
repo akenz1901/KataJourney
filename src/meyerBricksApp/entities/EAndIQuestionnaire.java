@@ -7,7 +7,6 @@ public class EAndIQuestionnaire extends Questionnaire{
     public EAndIQuestionnaire(){
         storeQuestionInA();
         storeQuestionInB();
-        IDNUMBER = 1;
     }
 
     public int getNumber(){
