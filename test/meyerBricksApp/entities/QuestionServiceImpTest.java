@@ -20,7 +20,6 @@ public class QuestionServiceImpTest {
     private JAndPQuestionnaire jAndPQuestionnaire;
     private TAndFQuestionnaire tAndFQuestionnaire;
     private Aspirant mercy;
-
     @BeforeEach
     void setUp() {
         questionService = new QuestionServiceImp();
@@ -157,5 +156,79 @@ public class QuestionServiceImpTest {
 
         assertEquals(ChoiceType.A, questionService.confirmChoiceWasSelected(sAndNQuestionnaire));
         assertEquals(2, questionService.scoreCandidate(sAndNQuestionnaire, mercy));
+    }
+    @Test
+    void selectChoiceForJ_andPQuestionnaire(){
+        assertEquals("preparation, plan ahead", questionService.displayQuestionA(jAndPQuestionnaire, 1));
+        assertEquals("go with the flow adapt as you go", questionService.displayQuestionB(jAndPQuestionnaire, 1));
+        jAndPQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(jAndPQuestionnaire));
+        assertEquals(1, questionService.scoreCandidate(jAndPQuestionnaire, mercy));
+
+        assertEquals("active, initiate", questionService.displayQuestionA(jAndPQuestionnaire, 2));
+        assertEquals("reflective, deliberate", questionService.displayQuestionB(jAndPQuestionnaire, 2));
+        jAndPQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(jAndPQuestionnaire));
+        assertEquals(2, questionService.scoreCandidate(jAndPQuestionnaire, mercy));
+
+        assertEquals("facts, things, 'what is'", questionService.displayQuestionA(jAndPQuestionnaire, 3));
+        assertEquals("ideas, dreams, 'what could be,' philosophical", questionService.displayQuestionB(jAndPQuestionnaire, 3));
+        jAndPQuestionnaire.setChoice(ChoiceType.A);
+
+        assertEquals(ChoiceType.A, questionService.confirmChoiceWasSelected(jAndPQuestionnaire));
+        assertEquals(1, questionService.scoreCandidate(jAndPQuestionnaire, mercy));
+
+        assertEquals("matter of fact, issue-oriented", questionService.displayQuestionA(jAndPQuestionnaire, 4));
+        assertEquals("sensitive, people-oriented, compassionate", questionService.displayQuestionB(jAndPQuestionnaire, 4));
+        jAndPQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(jAndPQuestionnaire));
+        assertEquals(3, questionService.scoreCandidate(jAndPQuestionnaire, mercy));
+
+        assertEquals("control, govern", questionService.displayQuestionA(jAndPQuestionnaire, 5));
+        assertEquals("latitude, freedom", questionService.displayQuestionB(jAndPQuestionnaire, 5));
+        jAndPQuestionnaire.setChoice(ChoiceType.A);
+
+        assertEquals(ChoiceType.A, questionService.confirmChoiceWasSelected(jAndPQuestionnaire));
+        assertEquals(2, questionService.scoreCandidate(jAndPQuestionnaire, mercy));
+    }
+    @Test
+    void selectChoiceForT_andFQuestionnaire(){
+        assertEquals("firm, tend to criticize, hold the line", questionService.displayQuestionA(tAndFQuestionnaire, 1));
+        assertEquals("gentle, tend to appreciate, conciliate", questionService.displayQuestionB(tAndFQuestionnaire, 1));
+        tAndFQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(tAndFQuestionnaire));
+        assertEquals(1, questionService.scoreCandidate(tAndFQuestionnaire, mercy));
+
+        assertEquals("regulate, structured", questionService.displayQuestionA(tAndFQuestionnaire, 2));
+        assertEquals("easygoing, 'live' and 'let live'", questionService.displayQuestionB(tAndFQuestionnaire, 2));
+        tAndFQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(tAndFQuestionnaire));
+        assertEquals(2, questionService.scoreCandidate(tAndFQuestionnaire, mercy));
+
+        assertEquals("external, communicative, express yourself", questionService.displayQuestionA(tAndFQuestionnaire, 3));
+        assertEquals("internal reticent, keep to yourself", questionService.displayQuestionB(tAndFQuestionnaire, 3));
+        tAndFQuestionnaire.setChoice(ChoiceType.A);
+
+        assertEquals(ChoiceType.A, questionService.confirmChoiceWasSelected(tAndFQuestionnaire));
+        assertEquals(1, questionService.scoreCandidate(tAndFQuestionnaire, mercy));
+
+        assertEquals("focus on here-and-now", questionService.displayQuestionA(tAndFQuestionnaire, 4));
+        assertEquals("look to the future, global perspective,'big picture'", questionService.displayQuestionB(tAndFQuestionnaire, 4));
+        tAndFQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(tAndFQuestionnaire));
+        assertEquals(3, questionService.scoreCandidate(tAndFQuestionnaire, mercy));
+
+        assertEquals("tough-minded, just", questionService.displayQuestionA(tAndFQuestionnaire, 5));
+        assertEquals("tender-hearted, merciful", questionService.displayQuestionB(tAndFQuestionnaire, 5));
+        tAndFQuestionnaire.setChoice(ChoiceType.A);
+
+        assertEquals(ChoiceType.A, questionService.confirmChoiceWasSelected(tAndFQuestionnaire));
+        assertEquals(2, questionService.scoreCandidate(tAndFQuestionnaire, mercy));
     }
 }
