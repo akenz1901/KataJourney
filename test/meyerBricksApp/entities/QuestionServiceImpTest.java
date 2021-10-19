@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -230,5 +231,44 @@ public class QuestionServiceImpTest {
 
         assertEquals(ChoiceType.A, questionService.confirmChoiceWasSelected(tAndFQuestionnaire));
         assertEquals(2, questionService.scoreCandidate(tAndFQuestionnaire, mercy));
+    }
+    @Test
+    void aspirantTotalScoreCanDefineAspirantPersonalityBetweenExtrovertAndIntrovert(){
+        assertEquals("expend energy, enjoy groups", questionService.displayQuestionA(eAndIQuestionnaire, 1));
+        assertEquals("conserve energy, enjoy one-on-one", questionService.displayQuestionB(eAndIQuestionnaire, 1));
+        eAndIQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(eAndIQuestionnaire));
+        assertEquals(1, questionService.scoreCandidate(eAndIQuestionnaire, mercy));
+
+        assertEquals("interpret literally", questionService.displayQuestionA(eAndIQuestionnaire, 2));
+        assertEquals("look for meaning and possibilities", questionService.displayQuestionB(eAndIQuestionnaire, 2));
+        eAndIQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(eAndIQuestionnaire));
+        assertEquals(2, questionService.scoreCandidate(eAndIQuestionnaire, mercy));
+
+        assertEquals("logical, thinking, questioning", questionService.displayQuestionA(eAndIQuestionnaire, 3));
+        assertEquals("empathetic, feeling, accommodating", questionService.displayQuestionB(eAndIQuestionnaire, 3));
+        eAndIQuestionnaire.setChoice(ChoiceType.A);
+
+        assertEquals(ChoiceType.A, questionService.confirmChoiceWasSelected(eAndIQuestionnaire));
+        assertEquals(1, questionService.scoreCandidate(eAndIQuestionnaire, mercy));
+
+        assertEquals("organized, orderly", questionService.displayQuestionA(eAndIQuestionnaire, 4));
+        assertEquals("flexible, adaptable", questionService.displayQuestionB(eAndIQuestionnaire, 4));
+        eAndIQuestionnaire.setChoice(ChoiceType.B);
+
+        assertEquals(ChoiceType.B, questionService.confirmChoiceWasSelected(eAndIQuestionnaire));
+        assertEquals(3, questionService.scoreCandidate(eAndIQuestionnaire, mercy));
+
+        assertEquals("more outgoing, think out loud", questionService.displayQuestionA(eAndIQuestionnaire, 5));
+        assertEquals("more reserved, think to yourself", questionService.displayQuestionB(eAndIQuestionnaire, 5));
+        eAndIQuestionnaire.setChoice(ChoiceType.A);
+
+        assertEquals(ChoiceType.A, questionService.confirmChoiceWasSelected(eAndIQuestionnaire));
+        assertEquals(2, questionService.scoreCandidate(eAndIQuestionnaire, mercy));
+
+        assertArrayEquals(new int[]{2, 3} , questionService.getTotalScore(eAndIQuestionnaire, mercy));
     }
 }
