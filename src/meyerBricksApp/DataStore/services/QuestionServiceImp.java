@@ -5,6 +5,8 @@ import meyerBricksApp.DataStore.ChoiceType;
 import meyerBricksApp.MeyerBriggsExceptions.MeyerBriggsAppException;
 import meyerBricksApp.entities.*;
 
+import java.util.Arrays;
+
 
 public class QuestionServiceImp implements QuestionService{
     @Override
@@ -81,6 +83,15 @@ public class QuestionServiceImp implements QuestionService{
     @Override
     public ChoiceType confirmChoiceWasSelected(Questionnaire questionnaire) {
         return questionnaire.getChoice();
+    }
+
+    @Override
+    public int[] getTotalScore(Questionnaire questionnaire, Aspirant aspirant) {
+        int extro = 0, intro= 0;
+        if(questionnaire.getClass().getSimpleName().equals(EAndIQuestionnaire.class.getSimpleName()))
+            extro = aspirant.getScore().get("Extrovert");
+            intro = aspirant.getScore().get("Introvert");
+        return new int[]{extro, intro};
     }
 
     private void validateCommonQuestionEffectOnScore(Questionnaire questionnaire, String question){

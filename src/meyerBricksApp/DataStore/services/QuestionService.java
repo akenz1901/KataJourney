@@ -12,4 +12,6 @@ public interface QuestionService {
     int scoreCandidate(Questionnaire questionnaire, Aspirant aspirant);
 
     ChoiceType confirmChoiceWasSelected(Questionnaire questionnaire);
+
+    int [] getTotalScore(Questionnaire questionnaire, Aspirant aspirant);
 }
