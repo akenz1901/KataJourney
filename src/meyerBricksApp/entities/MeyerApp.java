@@ -1,6 +1,5 @@
-package meyerBricksApp;
+package meyerBricksApp.entities;
 
 
 public class MeyerApp {
-    Question question;
 }
