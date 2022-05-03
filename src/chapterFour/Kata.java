@@ -231,6 +231,14 @@ public class Kata {
         return outPut;
     }
 
+    public String referenceNumberGenerator(){
+        StringBuilder letters = new StringBuilder("abcdefgh1jklmnopqrstuwxyz");
+        SecureRandom random = new SecureRandom();
+
+
+        return null;
+    }
+
     public static void main(String[] args) {
 //        modifyArrayList();
 //        man();

@@ -3,7 +3,6 @@ package tdd;
 public class AtmMachine {
     private double mainBalance;
     private String pin;
-
     public void createPin(String newPin) {
         pin = newPin;
     }

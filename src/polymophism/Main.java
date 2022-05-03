@@ -12,6 +12,7 @@ public class Main {
         ruby = 1;
         ruby = "";
         ruby = true;
+        ruby = '4';
 
         ruby = new Cat();
         aja.move();

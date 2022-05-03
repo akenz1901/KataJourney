@@ -150,7 +150,7 @@ public class KataTest {
     @Test
     void arraySortingTest(){
         Kata sort = new Kata();
-        int[] numbers = {2, 5, 4, 3, 1, 6};
+        int[] numbers = {2, 0, 1, 0, 1, 3};
         sort.sortArrayDesc(numbers);
         System.out.print(Arrays.toString(numbers));
         assertArrayEquals(new int[]{6, 5, 4, 3, 2, 1}, numbers);
@@ -229,7 +229,8 @@ public class KataTest {
     }
     @Test
     void arrayCanBeSortedAPIMethod(){
-        int [] cohortsNumbers = {23,4,51,3,4,22,9,0,1,2,3,22,3,4,44,};
+//        int [] cohortsNumbers = {23,4,51,3,4,22,9,0,1,2,3,22,3,4,44,};
+        int [] cohortsNumbers = {2, 2, 4, 0, 1, 0, 1};
         Kata.sortArrayAsc(cohortsNumbers);
         for (int digit:cohortsNumbers) {
             System.out.print(digit);
