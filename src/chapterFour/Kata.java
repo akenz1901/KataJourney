@@ -3,6 +3,7 @@ package chapterFour;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -231,18 +232,29 @@ public class Kata {
         return outPut;
     }
 
-    public String referenceNumberGenerator(){
-        StringBuilder letters = new StringBuilder("abcdefgh1jklmnopqrstuwxyz");
+    public static String referenceNumberGenerator(){
         SecureRandom random = new SecureRandom();
+        StringBuilder letters = new StringBuilder("abcdefgh1jklmnopqrstuwxyz");
+        letters.append(letters.toString().toUpperCase(Locale.ROOT));
+        String[] referenceStack = {")($%&@^!*_;/><:{}[]!+-=_|~`\"", letters.toString(), "1234567890", };
+        StringBuilder reference = new StringBuilder();
 
+        for(int i = 0; i < 10; i++){
+            for (String s : referenceStack) {
+                int generated;
+                generated = random.nextInt(s.length());
+                reference.append(s.substring(generated, generated+1));
+            }
+        }
 
-        return null;
+        return reference.toString();
     }
 
     public static void main(String[] args) {
 //        modifyArrayList();
 //        man();
-        System.out.print(Math.sqrt(-0.137));
+        System.out.println(referenceNumberGenerator());
+//        System.out.print(Math.sqrt(-0.137));
     }
 
 }
