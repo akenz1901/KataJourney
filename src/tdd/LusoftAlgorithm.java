@@ -12,7 +12,7 @@ public class LusoftAlgorithm {
         int initSum = 0;
 
         for (int i = 1; i < numbers.length; i++) {
-            for(int j = 0; j < numbers.length; j++){
+            for(int j = 0; j < i; j++){
                 state = numbers[i] + numbers[j] == targetSum;
                 if(state) {
                     initSum++;
