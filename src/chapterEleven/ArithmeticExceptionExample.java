@@ -23,8 +23,8 @@ public class ArithmeticExceptionExample {
                 System.out.println(inputMismatchException.getMessage());
                 sc.nextLine();
             }
-            catch (ArithmeticException arithmeti){
-                System.err.println(arithmeti.getMessage());
+            catch (ArithmeticException arithmetic){
+                System.err.println(arithmetic.getMessage());
 
             }
         }while (maintainSystemTermination);
