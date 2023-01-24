@@ -8,7 +8,6 @@ class AgeCount {
     public static void main (String[] args) {
         String url = "https://coderbyte.com/api/challenges/json/age-counting";
 
-
         try{
             URL urlOb = new URL(url);
 
@@ -23,7 +22,7 @@ class AgeCount {
             }
             System.out.println(json);
 
-            String[] arrJson = json.toString().split("'{'");
+            String[] arrJson = json.toString().split("");
             System.out.println(arrJson[0]);
 //            int count = 0;
 //            for(String field:arrJson){

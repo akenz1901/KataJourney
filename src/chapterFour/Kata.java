@@ -1,10 +1,7 @@
 package chapterFour;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Kata {
@@ -92,19 +89,20 @@ public class Kata {
         return userInput;
     }
 
-    public boolean checkTheFactorsOfANumber() {
+    public String checkTheFactorsOfANumber() {
+        List<Integer> factorNumbers = new ArrayList<>();
         System.out.print("Enter a number: ");
         int number = collector.nextInt();
         int factorNumber = 2;
         while (factorNumber < number) {
             if (number % factorNumber == 0) {
-                System.out.println("The Number Of factor are " + factorNumber);
+                factorNumbers.add(factorNumber);
             }
             factorNumber++;
         }
         if (number % factorNumber != 0)
             System.out.println("The Number Of factor are " + factorNumber);
-        return false;
+        return String.format("The factor numbers of %d are %s", number, Arrays.toString(factorNumbers.toArray()));
     }
 
     public String arithmeticNumbers(int firstNumber, int secondNumber) {
