@@ -24,14 +24,14 @@ class AgeCount {
 
             String[] arrJson = json.toString().split("");
             System.out.println(arrJson[0]);
-//            int count = 0;
-//            for(String field:arrJson){
-//                String[] each = field.split("=");
-//                if(each[0].strip().equals("age") && Integer.parseInt(each[1].strip())>=50){
-//                    count++;
-//                    System.out.println(count);
-//                }
-//            }
+            int count = 0;
+            for(String field:arrJson){
+                String[] each = field.split("=");
+                if(each[0].strip().equals("age") && Integer.parseInt(each[1].strip())>=50){
+                    count++;
+                    System.out.println(count);
+                }
+            }
         }catch(Exception e){
             e.printStackTrace();
         }
